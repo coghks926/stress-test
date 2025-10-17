@@ -1096,8 +1096,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
-        // EmailJS 초기화 - 여기에 실제 Public Key를 입력하세요
-        emailjs.init("YOUR_PUBLIC_KEY"); // ← 이 부분을 실제 Public Key로 변경하세요
+        // EmailJS 초기화 - 실제 Public Key로 변경됨
+        emailjs.init("gQJMP6li6AStVjesO");
 
         // 질문 데이터
         const questions = [
@@ -1258,8 +1258,8 @@
                 date: new Date().toLocaleDateString('ko-KR')
             };
 
-            // 이메일 전송 - 여기에 실제 Service ID와 Template ID를 입력하세요
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            // 이메일 전송 - 실제 Service ID와 Template ID로 변경됨
+            emailjs.send('service_2tdscta', 'template_z956dv7', templateParams)
                 .then(function(response) {
                     console.log('이메일 전송 성공!', response.status, response.text);
                     state.screen = 'email-success';
