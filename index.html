@@ -796,7 +796,7 @@
 
         /* 로딩 스피너 */
         .loading-spinner {
-            display: none;
+            display: inline-block;
             width: 20px;
             height: 20px;
             border: 2px solid #f3f3f3;
@@ -1216,18 +1216,25 @@
             return '#2d3748';
         }
 
-        // 이메일 전송 함수
+        // 🔧 수정된 이메일 전송 함수
         function sendEmail() {
+            console.log('=== 이메일 전송 시작 ===');
+            
             const email = document.getElementById('email-input').value.trim();
             const senderName = document.getElementById('sender-name').value.trim();
             
+            console.log('입력된 이메일:', email);
+            console.log('입력된 이름:', senderName);
+            
             if (!email) {
                 alert('이메일 주소를 입력해주세요.');
+                console.log('❌ 이메일 주소 누락');
                 return;
             }
             
             if (!senderName) {
                 alert('이름을 입력해주세요.');
+                console.log('❌ 이름 누락');
                 return;
             }
 
@@ -1235,19 +1242,27 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('올바른 이메일 형식을 입력해주세요.');
+                console.log('❌ 이메일 형식 오류');
                 return;
             }
 
-            // 로딩 시작
+            console.log('✅ 입력 검증 통과');
+
+            // 로딩 시작 - 안전하게 처리
             const button = document.getElementById('send-button');
-            const spinner = document.getElementById('loading-spinner');
-            button.disabled = true;
-            spinner.style.display = 'inline-block';
-            button.innerHTML = '<div class="loading-spinner" id="loading-spinner"></div>전송 중...';
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = '<div class="loading-spinner"></div>전송 중...';
+            }
+
+            console.log('✅ 로딩 상태 시작');
 
             // 검사 결과 생성
             const scores = calculateScores();
             const resultsText = generateResultsText(scores);
+            
+            console.log('생성된 점수:', scores);
+            console.log('생성된 결과 텍스트:', resultsText);
             
             // EmailJS 템플릿 파라미터
             const templateParams = {
@@ -1258,19 +1273,27 @@
                 date: new Date().toLocaleDateString('ko-KR')
             };
 
+            console.log('템플릿 파라미터:', templateParams);
+            console.log('EmailJS 설정:');
+            console.log('- Public Key: gQJMP6li6AStVjesO');
+            console.log('- Service ID: service_2tdscta');
+            console.log('- Template ID: template_z956dv7');
+
             // 이메일 전송 - 실제 Service ID와 Template ID로 변경됨
             emailjs.send('service_2tdscta', 'template_z956dv7', templateParams)
                 .then(function(response) {
-                    console.log('이메일 전송 성공!', response.status, response.text);
+                    console.log('✅ 이메일 전송 성공!', response.status, response.text);
                     state.screen = 'email-success';
                     render();
                 }, function(error) {
-                    console.error('이메일 전송 실패:', error);
-                    alert('이메일 전송에 실패했습니다. 다시 시도해주세요.');
-                    // 로딩 종료
-                    button.disabled = false;
-                    spinner.style.display = 'none';
-                    button.innerHTML = '이메일 전송하기';
+                    console.error('❌ 이메일 전송 실패:', error);
+                    console.error('오류 상세:', JSON.stringify(error, null, 2));
+                    alert('이메일 전송에 실패했습니다. 콘솔을 확인해주세요.');
+                    // 로딩 종료 - 안전하게 처리
+                    if (button) {
+                        button.disabled = false;
+                        button.innerHTML = '이메일 전송하기';
+                    }
                 });
         }
 
