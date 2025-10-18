@@ -280,6 +280,14 @@
             transform: translateY(0);
         }
 
+        .primary-button:disabled {
+            background: linear-gradient(135deg, #cbd5e0, #a0aec0);
+            color: #e2e8f0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
         .answer-container {
             display: flex;
             flex-direction: column;
@@ -794,23 +802,6 @@
             font-weight: 800;
         }
 
-        /* 로딩 스피너 */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* 반응형 디자인 - 질문 페이지 버튼 더 크게 */
         @media (max-width: 768px) {
             .container {
@@ -1216,7 +1207,7 @@
             return '#2d3748';
         }
 
-        // 🔧 수정된 이메일 전송 함수
+        // 🔧 완전히 수정된 이메일 전송 함수
         function sendEmail() {
             console.log('=== 이메일 전송 시작 ===');
             
@@ -1248,11 +1239,11 @@
 
             console.log('✅ 입력 검증 통과');
 
-            // 로딩 시작 - 안전하게 처리
+            // 로딩 시작 - 간단하게 처리
             const button = document.getElementById('send-button');
             if (button) {
                 button.disabled = true;
-                button.innerHTML = '<div class="loading-spinner"></div>전송 중...';
+                button.textContent = '전송 중...';
             }
 
             console.log('✅ 로딩 상태 시작');
@@ -1289,10 +1280,10 @@
                     console.error('❌ 이메일 전송 실패:', error);
                     console.error('오류 상세:', JSON.stringify(error, null, 2));
                     alert('이메일 전송에 실패했습니다. 콘솔을 확인해주세요.');
-                    // 로딩 종료 - 안전하게 처리
+                    // 로딩 종료 - 간단하게 처리
                     if (button) {
                         button.disabled = false;
-                        button.innerHTML = '이메일 전송하기';
+                        button.textContent = '이메일 전송하기';
                     }
                 });
         }
