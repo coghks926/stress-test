@@ -39,6 +39,7 @@
         .header {
             text-align: center;
             margin-bottom: 1rem;
+            position: relative;
         }
 
         .title-box {
@@ -121,6 +122,16 @@
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* 🆕 사용자 정보 입력 카드 - 가로로 길게 */
+        .user-info-card {
+            text-align: center;
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
         }
 
         .intro-title {
@@ -751,6 +762,130 @@
             font-weight: 500;
         }
 
+        /* 🆕 사용자 정보 입력 폼 스타일 - 가로로 길고 얇게 */
+        .user-info-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 16px;
+            color: #2d3748;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
+            height: 48px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .form-input::placeholder {
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        /* 🆕 동의 체크박스 스타일 - 테두리 추가 */
+        .consent-group {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.8);
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .consent-group:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .consent-text {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+        }
+
+        .consent-checkbox label {
+            font-size: 14px;
+            color: #4a5568;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* 🆕 마무리 페이지 스타일 */
+        .completion-card {
+            background: rgba(255,255,255,0.95);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .completion-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .completion-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #38a169;
+            margin-bottom: 1rem;
+        }
+
+        .completion-message {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .completion-subtitle {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
         /* 이메일 성공 화면 스타일 */
         .success-card {
             background: rgba(255,255,255,0.95);
@@ -856,6 +991,52 @@
         .score-green {
             color: #38a169;
             font-weight: 800;
+        }
+
+        /* 🆕 결과 보기 버튼 스타일 - 제목박스와 답변완료 박스 사이 중앙 (더 위로 올림) */
+        .results-button {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1.5rem;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(240, 147, 251, 0.4);
+            margin: -0.5rem auto 1rem auto;
+            display: block;
+            width: fit-content;
+            white-space: nowrap;
+        }
+
+        .results-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .results-button:hover::before {
+            left: 100%;
+        }
+
+        .results-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(240, 147, 251, 0.6);
+        }
+
+        .results-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .results-icon {
+            font-size: 14px;
         }
 
         /* 반응형 디자인 - 질문 페이지 버튼 더 크게 */
@@ -977,6 +1158,26 @@
 
             .traffic-guide {
                 gap: 0.5rem;
+            }
+
+            /* 결과 보기 버튼 모바일 - 더 위로 */
+            .results-button {
+                padding: 0.6rem 1rem;
+                font-size: 14px;
+                margin: -0.3rem auto 0.8rem auto;
+            }
+
+            /* 마무리 페이지 모바일 */
+            .completion-card {
+                padding: 2rem;
+            }
+
+            .completion-title {
+                font-size: 24px !important;
+            }
+
+            .completion-message {
+                font-size: 16px !important;
             }
         }
 
@@ -1112,6 +1313,26 @@
             .traffic-item .traffic-text {
                 font-size: 14px !important;
             }
+
+            /* 결과 보기 버튼 작은 화면 - 더 위로 */
+            .results-button {
+                padding: 0.5rem 0.8rem;
+                font-size: 13px;
+                margin: -0.2rem auto 0.6rem auto;
+            }
+
+            /* 마무리 페이지 작은 화면 */
+            .completion-card {
+                padding: 1.5rem;
+            }
+
+            .completion-title {
+                font-size: 20px !important;
+            }
+
+            .completion-message {
+                font-size: 14px !important;
+            }
         }
 
         /* 애니메이션 */
@@ -1146,22 +1367,17 @@
         <div id="app"></div>
     </div>
 
-    <!-- EmailJS 라이브러리 -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- QR코드 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
     <script>
-        // EmailJS 초기화 - 실제 Public Key로 변경됨
-        emailjs.init("gQJMP6li6AStVjesO");
-
         // 질문 데이터
         const questions = [
             { id: 1, text: "적절한 음식을 적당량 먹는다.", type: "A" },
             { id: 2, text: "점심식사 때 술을 마시지 않는다.", type: "B" },
             { id: 3, text: "일주일에 적어도 3번 정도는 땀이 날 정도로 운동을 한다.", type: "C" },
             { id: 4, text: "친구나 친척과 정기적 모임이나 동창 모임을 갖는다.", type: "D" },
-            { id: 5, text: "나의 성생활에 만족한다.", type: "E" },
+            { id: 5, text: "나의 성생활에 만족한다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 6, text: "적어도 한 가지 이상의 여가활동이나 규칙적으로 즐기는 흥미거리가 있다.", type: "F" },
             { id: 7, text: "주말에는 일하지 않고 쉬거나 여가활동을 한다.", type: "G" },
             { id: 8, text: "규칙적으로 기도를 하거나 명상을 한다.", type: "H" },
@@ -1169,7 +1385,7 @@
             { id: 10, text: "음료수를 술 마시기보다 더 좋아한다.", type: "B" },
             { id: 11, text: "일상생활 가운데 적당한 신체에너지를 사용하는 일을 한다.", type: "C" },
             { id: 12, text: "규칙적으로 애정을 주고받는다.", type: "D" },
-            { id: 13, text: "규칙적으로 성적 만족감을 취한다.", type: "E" },
+            { id: 13, text: "규칙적으로 성적 만족감을 취한다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 14, text: "매일 휴식시간을 갖는다.", type: "F" },
             { id: 15, text: "할 수 있는 일(현실적인 일)만 하며 과도하게 일하지 않는다.", type: "G" },
             { id: 16, text: "나의 문제를 내 스스로 해결한다.", type: "H" },
@@ -1177,7 +1393,7 @@
             { id: 18, text: "나 혼자서는 술을 마시지 않는다.", type: "B" },
             { id: 19, text: "엘리베이터나 승강기를 이용하기보다는 계단을 걸어 올라간다.", type: "C" },
             { id: 20, text: "부정적 감정을 쌓아두기보다는 잘 표현한다.", type: "D" },
-            { id: 21, text: "성적으로 무력하거나 냉담하지 않다.", type: "E" },
+            { id: 21, text: "성적으로 무력하거나 냉담하지 않다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 22, text: "적어도 일주일에 나흘 정도는 7~8시간 잠을 잔다.", type: "F" },
             { id: 23, text: "결코 일(사업)이 나의 생활을 지배하도록 두지 않는다.", type: "G" },
             { id: 24, text: "나 자신을 믿는다.", type: "H" },
@@ -1185,7 +1401,7 @@
             { id: 26, text: "퇴근 후 집에서 술을 잘 마시지 않는다.", type: "B" },
             { id: 27, text: "규칙적인 운동 프로그램을 실천한다.", type: "C" },
             { id: 28, text: "매우 절친한 친구가 있어 그들과 은밀한 문제를 논의할 수 있다.", type: "D" },
-            { id: 29, text: "사랑이 충만한 성관계를 갖는다.", type: "E" },
+            { id: 29, text: "사랑이 충만한 성관계를 갖는다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 30, text: "일주일에 적어도 한번은 재미있는 일을 한다.", type: "F" },
             { id: 31, text: "사회생활에서 나 자신의 사업에 대해 말하는 것을 피한다.", type: "G" },
             { id: 32, text: "내 마음이 평안하다는 느낌을 갖는다.", type: "H" },
@@ -1193,7 +1409,7 @@
             { id: 34, text: "적당하게 술을 마시거나(하루 2잔 미만), 전혀 마시지 않는다.", type: "B" },
             { id: 35, text: "매주 한가지 이상의 운동을 한다.", type: "C" },
             { id: 36, text: "직장에서 나를 정서적으로 지지해 주는 동료가 있다.", type: "D" },
-            { id: 37, text: "안정된 성관계를 유지하길 좋아한다.", type: "E" },
+            { id: 37, text: "안정된 성관계를 유지하길 좋아한다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 38, text: "나 스스로 즐거운 일거리를 마련할 수 있다.", type: "F" },
             { id: 39, text: "야간에는 일하지 않는다.", type: "G" },
             { id: 40, text: "어떤 일이나 어떤 단체에 대해 높은 소속감을 갖는다.", type: "H" },
@@ -1201,7 +1417,7 @@
             { id: 42, text: "하루 3개피 이하의 담배를 피우거나 아예 피우지 않는다.", type: "B" },
             { id: 43, text: "매일 산책하거나 길을 걷는다.", type: "C" },
             { id: 44, text: "친구로부터 도움을 구하거나 필요하면 전문적 충고를 받는다.", type: "D" },
-            { id: 45, text: "거의 성적 좌절감을 느끼지 않는다.", type: "E" },
+            { id: 45, text: "거의 성적 좌절감을 느끼지 않는다.<br><span style='color: #000000; font-weight: 400; font-size: 14px; text-align: center; display: block;'>(만 19세 이상만 답변할 것)</span>", type: "E" },
             { id: 46, text: "아무것도 하지 않고도 시간을 보낼 수 있다.", type: "F" },
             { id: 47, text: "가정생활과 직장생활이 나에게는 똑같이 중요하다.", type: "G" },
             { id: 48, text: "스트레스 상황을 극복하는 것을 배운 적이 있다.", type: "H" }
@@ -1248,115 +1464,6 @@
             if (score <= 9) return '#e53e3e';
             if (score >= 15) return '#38a169';
             return '#2d3748';
-        }
-
-        // 🔧 완전히 수정된 이메일 전송 함수
-        function sendEmail() {
-            console.log('=== 이메일 전송 시작 ===');
-            
-            const email = document.getElementById('email-input').value.trim();
-            const senderName = document.getElementById('sender-name').value.trim();
-            
-            console.log('입력된 이메일:', email);
-            console.log('입력된 이름:', senderName);
-            
-            if (!email) {
-                alert('이메일 주소를 입력해주세요.');
-                console.log('❌ 이메일 주소 누락');
-                return;
-            }
-            
-            if (!senderName) {
-                alert('이름을 입력해주세요.');
-                console.log('❌ 이름 누락');
-                return;
-            }
-
-            // 이메일 형식 검증
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('올바른 이메일 형식을 입력해주세요.');
-                console.log('❌ 이메일 형식 오류');
-                return;
-            }
-
-            console.log('✅ 입력 검증 통과');
-
-            // 로딩 시작 - 간단하게 처리
-            const button = document.getElementById('send-button');
-            if (button) {
-                button.disabled = true;
-                button.textContent = '전송 중...';
-            }
-
-            console.log('✅ 로딩 상태 시작');
-
-            // 검사 결과 생성
-            const scores = calculateScores();
-            const resultsText = generateResultsText(scores);
-            
-            console.log('생성된 점수:', scores);
-            console.log('생성된 결과 텍스트:', resultsText);
-            
-            // EmailJS 템플릿 파라미터
-            const templateParams = {
-                to_email: email,
-                sender_name: senderName,
-                results: resultsText,
-                plan: state.planText || '작성하지 않음',
-                date: new Date().toLocaleDateString('ko-KR')
-            };
-
-            console.log('템플릿 파라미터:', templateParams);
-            console.log('EmailJS 설정:');
-            console.log('- Public Key: gQJMP6li6AStVjesO');
-            console.log('- Service ID: service_2tdscta');
-            console.log('- Template ID: template_z956dv7');
-
-            // 이메일 전송 - 실제 Service ID와 Template ID로 변경됨
-            emailjs.send('service_2tdscta', 'template_z956dv7', templateParams)
-                .then(function(response) {
-                    console.log('✅ 이메일 전송 성공!', response.status, response.text);
-                    state.screen = 'email-success';
-                    render();
-                }, function(error) {
-                    console.error('❌ 이메일 전송 실패:', error);
-                    console.error('오류 상세:', JSON.stringify(error, null, 2));
-                    alert('이메일 전송에 실패했습니다. 콘솔을 확인해주세요.');
-                    // 로딩 종료 - 간단하게 처리
-                    if (button) {
-                        button.disabled = false;
-                        button.textContent = '이메일 전송하기';
-                    }
-                });
-        }
-
-        // 결과 텍스트 생성
-        function generateResultsText(scores) {
-            let text = '=== 스트레스 취약성 검사 결과 ===\n\n';
-            
-            Object.keys(typeInfo).forEach(type => {
-                const score = scores[type];
-                const typeName = typeInfo[type].name;
-                let interpretation = '';
-                
-                if (score <= 9) {
-                    interpretation = '주의 (🔴)';
-                } else if (score >= 15) {
-                    interpretation = '양호 (🟢)';
-                } else {
-                    interpretation = '보통 (🟡)';
-                }
-                
-                text += `${type}유형 (${typeName}): ${score}점 - ${interpretation}\n`;
-            });
-            
-            text += '\n=== 해석 가이드 ===\n';
-            text += '🟢 15점 이상: 양호 - 잘 견디고 있다는 증거\n';
-            text += '🟡 10-14점: 보통 - 일반적인 수준\n';
-            text += '🔴 9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향\n';
-            
-            return text;
         }
 
         // 테스트 리셋
@@ -1667,6 +1774,37 @@
             });
         }
 
+        // 🔧 사용자 정보 입력 검증 및 다음 단계로 진행
+        function startTest() {
+            const senderName = document.getElementById('user-name').value.trim();
+            const userEmail = document.getElementById('user-email').value.trim();
+
+            if (!senderName) {
+                alert('이름을 입력해주세요.');
+                return;
+            }
+
+            if (!userEmail) {
+                alert('이메일 주소를 입력해주세요.');
+                return;
+            }
+
+            // 이메일 형식 검증
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(userEmail)) {
+                alert('올바른 이메일 형식을 입력해주세요.');
+                return;
+            }
+
+            // 사용자 정보 저장
+            state.senderName = senderName;
+            state.userEmail = userEmail;
+            
+            // 질문 화면으로 이동
+            state.screen = 'question';
+            render();
+        }
+
         // 화면 렌더링
         function render() {
             const app = document.getElementById('app');
@@ -1676,8 +1814,8 @@
                     <div class="container">
                         <div class="intro-card card">
                             <h1 class="intro-title">스트레스 취약성 검사</h1>
-                            <p class="intro-subtitle">8가지 영역의 질문으로 스트레스 취약성을 확인해보세요.<br>각 질문에 대해 솔직하게 답변해주세요.</p>
-                            <button class="primary-button" onclick="state.screen='question'; render();">시작하기</button>
+                            <p class="intro-subtitle">8가지 영역의 질문으로 스트레스 취약성을 확인해보세요.<br>각 질문에 대해 솔직하게 답변해주세요.<br>(답변하기 곤란한 문항은 무응답 처리 가능)</p>
+                            <button class="primary-button" onclick="state.screen='user-info'; render();">시작하기</button>
                         </div>
 
                         <div class="qr-section">
@@ -1713,6 +1851,54 @@
                 
                 // QR코드 생성 함수 호출 (DOM이 로드된 후)
                 setTimeout(generateQRCode, 100);
+            }
+            
+            // 🆕 사용자 정보 입력 화면 - 가로로 길게
+            else if (state.screen === 'user-info') {
+                app.innerHTML = `
+                    <div class="container">
+                        <div class="user-info-card card">
+                            <h1 class="intro-title">사용자 정보 입력</h1>
+                            <p class="intro-subtitle">검사를 시작하기 전에 이름과 이메일 주소를 입력해주세요.</p>
+                            
+                            <div class="user-info-form">
+                                <div class="form-group">
+                                    <label class="form-label">이름</label>
+                                    <input 
+                                        type="text" 
+                                        id="user-name"
+                                        class="form-input" 
+                                        placeholder="이름을 입력하세요"
+                                        value="${state.senderName}"
+                                    />
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">이메일 주소</label>
+                                    <input 
+                                        type="email" 
+                                        id="user-email"
+                                        class="form-input" 
+                                        placeholder="이메일 주소를 입력하세요"
+                                        value="${state.userEmail}"
+                                    />
+                                </div>
+                                
+                                <div class="consent-group">
+                                    <div class="consent-text">
+                                        검사 결과를 바탕으로 더 나은 스트레스 관리 서비스를 제공하기 위해 익명화된 데이터로 활용하는 것에 동의하시나요?
+                                    </div>
+                                    <div class="consent-checkbox">
+                                        <input type="checkbox" id="consent" />
+                                        <label for="consent">동의합니다</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="primary-button" onclick="startTest()">검사 시작</button>
+                        </div>
+                    </div>
+                `;
             }
             
             else if (state.screen === 'question') {
@@ -1758,11 +1944,6 @@
                             </button>
 
                             <div class="center-buttons">
-                                ${state.currentQuestion === 0 && state.questionFilter === 'all' ? `
-                                    <button class="nav-pill dev-button" onclick="state.screen='results'; render();">
-                                        결과 바로 보기(개발용)
-                                    </button>
-                                ` : ''}
                                 <button class="nav-pill secondary" onclick="state.screen='review'; render();">
                                     답변 현황
                                 </button>
@@ -1788,6 +1969,11 @@
                                 <div class="subtitle">총 ${answered.length}개 답변 완료</div>
                             </div>
                         </div>
+                        
+                        <button class="results-button" onclick="state.screen='results'; render();">
+                            <span class="results-icon">🔄</span>
+                            결과 보기
+                        </button>
 
                         <div class="review-container">
                             <div class="section">
@@ -1820,11 +2006,7 @@
                                 <button class="nav-pill" onclick="state.questionFilter='unanswered'; state.screen='question'; state.unansweredQuestions=${JSON.stringify(unanswered)}; state.sessionAnsweredCount=0; state.currentQuestion=${unanswered[0]-1}; render();">
                                     미답변 계속하기
                                 </button>
-                            ` : `
-                                <button class="nav-pill" onclick="state.screen='results'; render();">
-                                    결과 보기
-                                </button>
-                            `}
+                            ` : ''}
                         </div>
                     </div>
                 `;
@@ -2010,78 +2192,28 @@
                     </div>
 
                     <div class="footer-bar">
-                        <button class="nav-pill" onclick="state.screen='email'; render();">
-                            완료하고 결과 전송하기
+                        <button class="nav-pill" onclick="state.screen='completion'; render();">
+                            다음
                         </button>
                     </div>
                 `;
             }
             
-            // 🆕 이메일 입력 화면
-            else if (state.screen === 'email') {
+            // 🆕 마무리 페이지
+            else if (state.screen === 'completion') {
                 app.innerHTML = `
                     <div class="container">
-                        <div class="header" style="margin-bottom: 2rem;">
-                            <div class="title-box">
-                                <h1 class="title">📧 검사 결과 전송</h1>
-                                <div class="subtitle">이름과 이메일을 입력해주세요</div>
-                            </div>
-                        </div>
-
-                        <div class="email-card">
-                            <input 
-                                type="text" 
-                                id="sender-name"
-                                class="email-input" 
-                                placeholder="이름을 입력하세요"
-                                value="${state.senderName}"
-                                oninput="state.senderName = this.value"
-                                style="margin-bottom: 1rem;"
-                            />
-                            
-                            <input 
-                                type="email" 
-                                id="email-input"
-                                class="email-input" 
-                                placeholder="받는 사람 이메일 주소"
-                                value="${state.userEmail}"
-                                oninput="state.userEmail = this.value"
-                            />
-                            
-                            <button 
-                                id="send-button"
-                                class="primary-button" 
-                                onclick="sendEmail()"
-                            >
-                                이메일 전송하기
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="footer-bar">
-                            <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">
-                                처음으로 돌아가기
-                            </button>
-                        </div>
-                `;
-            }
-            
-            // 🆕 이메일 전송 성공 화면
-            else if (state.screen === 'email-success') {
-                app.innerHTML = `
-                    <div class="container">
-                        <div class="header" style="margin-bottom: 2rem;">
-                            <div class="title-box">
-                                <h1 class="title">📧 검사 결과 전송</h1>
-                            </div>
-                        </div>
-
-                        <div class="success-card">
-                            <span class="success-icon">✅</span>
-                            <h2 class="success-title">전송 완료!</h2>
-                            <p class="success-message">
-                                검사 결과와 실천 전략이 성공적으로 전송되었습니다.<br>
-                                입력하신 이메일을 확인해주세요.
+                        <div class="completion-card">
+                            <div class="completion-icon">🎉</div>
+                            <h1 class="completion-title">고생하셨습니다!</h1>
+                            <p class="completion-message">
+                                스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>
+                                검사 결과와 실천 전략을 바탕으로<br>
+                                더 건강한 일상을 만들어가시길 바랍니다.
+                            </p>
+                            <p class="completion-subtitle">
+                                언제든지 다시 검사해보시고,<br>
+                                꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪
                             </p>
                         </div>
                     </div>
