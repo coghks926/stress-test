@@ -1778,6 +1778,7 @@
         function startTest() {
             const senderName = document.getElementById('user-name').value.trim();
             const userEmail = document.getElementById('user-email').value.trim();
+            const consentChecked = document.getElementById('consent').checked;
 
             if (!senderName) {
                 alert('이름을 입력해주세요.');
@@ -1793,6 +1794,12 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(userEmail)) {
                 alert('올바른 이메일 형식을 입력해주세요.');
+                return;
+            }
+
+            // 동의 체크 검증
+            if (!consentChecked) {
+                alert('개인정보 활용에 동의해주세요.');
                 return;
             }
 
