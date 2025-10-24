@@ -35,7 +35,7 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일 - 얇고 긴 제목 박스 */
+        /* 헤더 스타일 - 반응형으로 수정 */
         .header {
             text-align: center;
             margin-bottom: 1rem;
@@ -51,30 +51,31 @@
             border: 1px solid rgba(255,255,255,0.2);
             margin-bottom: 0;
             display: inline-block;
-            min-width: 400px;
+            min-width: 300px;
             max-width: 90%;
             margin: 0 auto;
+            width: fit-content;
         }
 
         .title {
-            font-size: 28px;
+            font-size: clamp(18px, 4vw, 28px);
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            word-break: keep-all;
+            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: 16px;
+            font-size: clamp(12px, 2.5vw, 16px);
             color: rgba(255,255,255,0.9);
             font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            word-break: keep-all;
             margin-top: 0.25rem;
+            line-height: 1.3;
         }
 
         .progress-container {
@@ -126,7 +127,7 @@
             width: 100%;
         }
 
-        /* 🆕 사용자 정보 입력 카드 - 가로로 길게 */
+        /* 사용자 정보 입력 카드 - 가로로 길게 */
         .user-info-card {
             text-align: center;
             margin-top: 4rem;
@@ -137,7 +138,7 @@
         }
 
         .intro-title {
-            font-size: 32px;
+            font-size: clamp(24px, 5vw, 32px);
             font-weight: 900;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
@@ -145,18 +146,18 @@
             background-clip: text;
             margin-bottom: 1rem;
             white-space: normal;
-            overflow: visible;
-            text-overflow: unset;
+            word-break: keep-all;
+            line-height: 1.2;
         }
 
         .intro-subtitle {
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
             color: #718096;
             margin-bottom: 2rem;
             font-weight: 500;
             white-space: normal;
-            overflow: visible;
-            text-overflow: unset;
+            word-break: keep-all;
+            line-height: 1.4;
         }
 
         /* QR코드 스타일 - 모바일 대응 */
@@ -171,14 +172,13 @@
         }
 
         .qr-title {
-            font-size: 20px;
+            font-size: clamp(16px, 3.5vw, 20px);
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 1rem;
             text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            word-break: keep-all;
         }
 
         .qr-description {
@@ -547,7 +547,7 @@
             font-weight: 700;
         }
 
-        /* 🆕 새로운 결과 페이지 스타일 - 영역별 분리 */
+        /* 새로운 결과 페이지 스타일 - 영역별 분리 */
         .area-section {
             margin-bottom: 3rem;
         }
@@ -571,19 +571,23 @@
         }
 
         .area-title {
-            font-size: 24px;
+            font-size: clamp(18px, 4vw, 24px);
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            white-space: nowrap;
+            white-space: normal;
+            word-break: keep-all;
+            line-height: 1.2;
         }
 
         .area-subtitle {
-            font-size: 16px;
+            font-size: clamp(14px, 2.5vw, 16px);
             color: rgba(255,255,255,0.9);
             font-weight: 500;
-            white-space: nowrap;
+            white-space: normal;
+            word-break: keep-all;
+            line-height: 1.3;
         }
 
         .results-grid {
@@ -764,7 +768,7 @@
             font-weight: 500;
         }
 
-        /* 🆕 사용자 정보 입력 폼 스타일 - 가로로 길고 얇게 */
+        /* 사용자 정보 입력 폼 스타일 - 가로로 길고 얇게 */
         .user-info-form {
             text-align: left;
         }
@@ -807,7 +811,7 @@
             font-weight: 500;
         }
 
-        /* 🆕 동의 체크박스 스타일 - 테두리 추가 */
+        /* 동의 체크박스 스타일 - 테두리 추가 */
         .consent-group {
             margin-bottom: 1.5rem;
             padding: 1rem;
@@ -849,7 +853,7 @@
             cursor: pointer;
         }
 
-        /* 🆕 마무리 페이지 스타일 */
+        /* 마무리 페이지 스타일 */
         .completion-card {
             background: rgba(255,255,255,0.95);
             padding: 3rem;
@@ -868,21 +872,21 @@
         }
 
         .completion-title {
-            font-size: 28px;
+            font-size: clamp(20px, 4vw, 28px);
             font-weight: 800;
             color: #38a169;
             margin-bottom: 1rem;
         }
 
         .completion-message {
-            font-size: 18px;
+            font-size: clamp(14px, 3vw, 18px);
             color: #4a5568;
             margin-bottom: 2rem;
             line-height: 1.6;
         }
 
         .completion-subtitle {
-            font-size: 16px;
+            font-size: clamp(12px, 2.5vw, 16px);
             color: #718096;
             margin-bottom: 2rem;
             line-height: 1.6;
@@ -995,7 +999,7 @@
             font-weight: 800;
         }
 
-        /* 🆕 답변 현황 페이지 하단 버튼 스타일 - 이전/다음 버튼처럼 */
+        /* 답변 현황 페이지 하단 버튼 스타일 - 이전/다음 버튼처럼 */
         .review-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1060,7 +1064,7 @@
             box-shadow: 0 8px 16px rgba(240, 147, 251, 0.4);
         }
 
-        /* 🆕 결과 페이지 하단 버튼 스타일 - 질문 페이지와 같은 크기 */
+        /* 결과 페이지 하단 버튼 스타일 - 질문 페이지와 같은 크기 */
         .results-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1116,7 +1120,7 @@
             box-shadow: none;
         }
 
-        /* 🆕 스트레스 관리 실천 전략 페이지 추가 정보 스타일 */
+        /* 스트레스 관리 실천 전략 페이지 추가 정보 스타일 */
         .additional-info {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
             border-radius: 1rem;
@@ -1162,7 +1166,7 @@
             text-decoration: underline;
         }
 
-        /* 🆕 스트레스 관리 실천 전략 페이지 하단 버튼 스타일 - 결과 페이지와 같은 크기 */
+        /* 스트레스 관리 실천 전략 페이지 하단 버튼 스타일 - 결과 페이지와 같은 크기 */
         .plan-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1268,20 +1272,6 @@
                 height: 150px;
             }
 
-            /* 모바일에서도 제목 크기 유지 */
-            .title {
-                font-size: 24px !important;
-            }
-            
-            .intro-title {
-                font-size: 28px !important;
-            }
-
-            .title-box {
-                min-width: 300px;
-                padding: 0.5rem 1.5rem;
-            }
-
             /* 결과 페이지 태블릿 최적화 - 4x1 유지하되 크기 축소 */
             .results-grid {
                 grid-template-columns: repeat(4, 1fr) !important;
@@ -1324,15 +1314,6 @@
 
             .total-score {
                 font-size: 18px !important;
-            }
-
-            .area-title-box {
-                min-width: 250px;
-                padding: 0.5rem 1.5rem;
-            }
-
-            .area-title {
-                font-size: 20px !important;
             }
 
             .traffic-guide {
@@ -1380,14 +1361,6 @@
             /* 마무리 페이지 모바일 */
             .completion-card {
                 padding: 2rem;
-            }
-
-            .completion-title {
-                font-size: 24px !important;
-            }
-
-            .completion-message {
-                font-size: 16px !important;
             }
 
             .completion-actions {
@@ -1483,20 +1456,6 @@
                 height: 120px;
             }
 
-            /* 작은 화면에서도 제목 크기 유지 */
-            .title {
-                font-size: 20px !important;
-            }
-            
-            .intro-title {
-                font-size: 24px !important;
-            }
-
-            .title-box {
-                min-width: 250px;
-                padding: 0.5rem 1rem;
-            }
-
             /* 결과 페이지 모바일 최적화 - 4x1 유지하되 더 작게 */
             .results-grid {
                 grid-template-columns: repeat(4, 1fr) !important;
@@ -1558,15 +1517,6 @@
                 font-size: 16px !important;
             }
 
-            .area-title-box {
-                min-width: 200px;
-                padding: 0.5rem 1rem;
-            }
-
-            .area-title {
-                font-size: 18px !important;
-            }
-
             .traffic-item .traffic-text {
                 font-size: 14px !important;
             }
@@ -1612,14 +1562,6 @@
             /* 마무리 페이지 작은 화면 */
             .completion-card {
                 padding: 1.5rem;
-            }
-
-            .completion-title {
-                font-size: 20px !important;
-            }
-
-            .completion-message {
-                font-size: 14px !important;
             }
 
             .completion-actions {
@@ -1936,7 +1878,7 @@
             return Array.from({length:48},(_,i)=>i+1).filter(n=>!answered.has(n));
         }
 
-        // 🔧 모바일 대응 QR코드 생성 함수 - 완전히 새로 작성
+        // 모바일 대응 QR코드 생성 함수 - 완전히 새로 작성
         function generateQRCode() {
             console.log('=== 모바일 대응 QR코드 생성 시작 ===');
             
@@ -1964,7 +1906,7 @@
             }
         }
 
-        // 🔧 모바일 전용 QR코드 생성
+        // 모바일 전용 QR코드 생성
         function generateMobileQRCode() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -1992,7 +1934,7 @@
             };
         }
 
-        // 🔧 모바일 폴백 방법
+        // 모바일 폴백 방법
         function generateMobileQRCodeFallback() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -2017,7 +1959,7 @@
             };
         }
 
-        // 🔧 데스크탑 전용 QR코드 생성
+        // 데스크탑 전용 QR코드 생성
         function generateDesktopQRCode() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -2051,7 +1993,7 @@
             }
         }
 
-        // 🔧 데스크탑 폴백 방법
+        // 데스크탑 폴백 방법
         function generateDesktopQRCodeFallback() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -2074,7 +2016,7 @@
             };
         }
 
-        // 🔧 최종 폴백 방법: URL 표시
+        // 최종 폴백 방법: URL 표시
         function generateQRCodeFinalFallback() {
             console.log('=== 최종 폴백 방법: URL 표시 ===');
             
@@ -2097,7 +2039,7 @@
             console.log('✅ URL 폴백 표시 완료');
         }
 
-        // 🔧 URL 복사 함수
+        // URL 복사 함수
         function copyURL() {
             const url = 'https://coghks926.github.io/stress-test/';
             navigator.clipboard.writeText(url).then(function() {
@@ -2113,7 +2055,7 @@
             });
         }
 
-        // 🔧 사용자 정보 입력 검증 및 다음 단계로 진행
+        // 사용자 정보 입력 검증 및 다음 단계로 진행
         function startTest() {
             const senderName = document.getElementById('user-name').value.trim();
             const userEmail = document.getElementById('user-email').value.trim();
@@ -2199,7 +2141,7 @@
                 setTimeout(generateQRCode, 100);
             }
             
-            // 🆕 사용자 정보 입력 화면 - 가로로 길게
+            // 사용자 정보 입력 화면 - 가로로 길게
             else if (state.screen === 'user-info') {
                 app.innerHTML = `
                     <div class="container">
@@ -2517,7 +2459,6 @@
                                 다음 →
                             </button>
                         </div>
-
                         <div style="height: 100px;"></div>
                     </div>
                 `;
@@ -2565,7 +2506,7 @@
                 `;
             }
             
-            // 🆕 마무리 페이지
+            // 마무리 페이지
             else if (state.screen === 'completion') {
                 app.innerHTML = `
                     <div class="container">
@@ -2598,3 +2539,4 @@
     </script>
 </body>
 </html>
+    
