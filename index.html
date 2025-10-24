@@ -51,6 +51,7 @@
             border: 1px solid rgba(255,255,255,0.2);
             margin-bottom: 0;
             display: inline-block;
+            min-width: 400px;
             max-width: 90%;
             margin: 0 auto;
         }
@@ -1267,17 +1268,23 @@
                 height: 150px;
             }
 
-            /* 모바일에서 제목 크기 줄이기 */
+            /* 모바일에서도 제목 크기 유지 */
             .title {
-                font-size: 20px !important;
+                font-size: 24px !important;
             }
             
             .intro-title {
-                font-size: 24px !important;
+                font-size: 28px !important;
             }
 
             .title-box {
+                min-width: 300px;
                 padding: 0.5rem 1.5rem;
+            }
+
+            /* 🆕 intro-subtitle 반응형 크기 추가 */
+            .intro-subtitle {
+                font-size: 14px !important;
             }
 
             /* 결과 페이지 태블릿 최적화 - 4x1 유지하되 크기 축소 */
@@ -1434,11 +1441,6 @@
             .plan-card {
                 margin-bottom: 0.5rem;
             }
-
-            /* 모바일에서 intro-subtitle 글자 크기 적절히 조정 */
-            .intro-subtitle {
-                font-size: 15px !important;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1486,17 +1488,23 @@
                 height: 120px;
             }
 
-            /* 작은 화면에서 제목 크기 더 줄이기 */
+            /* 작은 화면에서도 제목 크기 유지 */
             .title {
-                font-size: 16px !important;
+                font-size: 20px !important;
             }
             
             .intro-title {
-                font-size: 20px !important;
+                font-size: 24px !important;
             }
 
             .title-box {
+                min-width: 250px;
                 padding: 0.5rem 1rem;
+            }
+
+            /* 🆕 작은 화면에서 intro-subtitle 더 작게 */
+            .intro-subtitle {
+                font-size: 12px !important;
             }
 
             /* 결과 페이지 모바일 최적화 - 4x1 유지하되 더 작게 */
@@ -1673,11 +1681,6 @@
             /* 실천 전략 카드 작은 화면 */
             .plan-card {
                 margin-bottom: 0.25rem;
-            }
-
-            /* 작은 화면에서 intro-subtitle 글자 크기 적절히 조정 */
-            .intro-subtitle {
-                font-size: 13px !important;
             }
         }
 
@@ -2497,111 +2500,111 @@
                             <div class="interpretation-title">해석 가이드</div>
                             <div class="traffic-guide">
                                 <div class="traffic-item">
-                                                                    <span class="traffic-icon">🟢</span>
-                                <span class="traffic-text">15점 이상: 양호 - 잘 견디고 있다는 증거</span>
-                            </div>
-                            <div class="traffic-item">
-                                <span class="traffic-icon">🟡</span>
-                                <span class="traffic-text">10-14점: 보통 - 일반적인 수준</span>
-                            </div>
-                            <div class="traffic-item">
-                                <span class="traffic-icon">🔴</span>
-                                <span class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</span>
+                                    <span class="traffic-icon">🟢</span>
+                                    <span class="traffic-text">15점 이상: 양호 - 잘 견디고 있다는 증거</span>
+                                </div>
+                                <div class="traffic-item">
+                                    <span class="traffic-icon">🟡</span>
+                                    <span class="traffic-text">10-14점: 보통 - 일반적인 수준</span>
+                                </div>
+                                <div class="traffic-item">
+                                    <span class="traffic-icon">🔴</span>
+                                    <span class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="results-footer-nav">
-                        <button class="results-nav-pill" onclick="state.screen='review'; render();">
-                            ← 이전
-                        </button>
-                        
-                        <div class="citation">
-                            * 출처 : James Cranwell Ward (1990)
-                        </div>
-                        
-                        <button class="results-nav-pill" onclick="state.screen='plan'; render();">
-                            다음 →
-                        </button>
-                    </div>
-
-                    <div style="height: 100px;"></div>
-                </div>
-            `;
-        }
-        
-        else if (state.screen === 'plan') {
-            app.innerHTML = `
-                <div class="container">
-                    <div class="header" style="margin-bottom: 2rem;">
-                        <div class="title-box">
-                            <h1 class="title">나의 스트레스 관리 실천 전략</h1>
-                            <div class="subtitle">자유롭게 계획을 적어보세요</div>
-                        </div>
-                    </div>
-
-                    <div class="plan-card">
-                        <textarea 
-                            class="plan-input" 
-                            placeholder="예: 매주 3회 운동, 카페인 줄이기, 주말 휴식 시간 확보 등"
-                            oninput="state.planText = this.value"
-                        >${state.planText}</textarea>
-                        
-                        <div class="additional-info">
-                            <h4>스트레스와 정신건강 추가 정보</h4>
-                            <p>1. 유튜브 '이재경교수TV', 길벗심리상담연구소 홈페이지 참조</p>
-                            <p>2. 교육(강의), 심리상담 문의는 이재경 상담심리학박사 메일로 연락</p>
+                        <div class="results-footer-nav">
+                            <button class="results-nav-pill" onclick="state.screen='review'; render();">
+                                ← 이전
+                            </button>
                             
-                            <div class="contact-info">
-                                <strong>연락처:</strong><br>
-                                <a href="mailto:ljg4129@naver.com" class="email">ljg4129@naver.com</a>
+                            <div class="citation">
+                                * 출처 : James Cranwell Ward (1990)
+                            </div>
+                            
+                            <button class="results-nav-pill" onclick="state.screen='plan'; render();">
+                                다음 →
+                            </button>
+                        </div>
+
+                        <div style="height: 100px;"></div>
+                    </div>
+                `;
+            }
+            
+            else if (state.screen === 'plan') {
+                app.innerHTML = `
+                    <div class="container">
+                        <div class="header" style="margin-bottom: 2rem;">
+                            <div class="title-box">
+                                <h1 class="title">나의 스트레스 관리 실천 전략</h1>
+                                <div class="subtitle">자유롭게 계획을 적어보세요</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="plan-footer-nav">
-                        <button class="plan-nav-pill" onclick="state.screen='results'; render();">
-                            ← 이전
-                        </button>
+
+                        <div class="plan-card">
+                            <textarea 
+                                class="plan-input" 
+                                placeholder="예: 매주 3회 운동, 카페인 줄이기, 주말 휴식 시간 확보 등"
+                                oninput="state.planText = this.value"
+                            >${state.planText}</textarea>
+                            
+                            <div class="additional-info">
+                                <h4>스트레스와 정신건강 추가 정보</h4>
+                                <p>1. 유튜브 '이재경교수TV', 길벗심리상담연구소 홈페이지 참조</p>
+                                <p>2. 교육(강의), 심리상담 문의는 이재경 상담심리학박사 메일로 연락</p>
+                                
+                                <div class="contact-info">
+                                    <strong>연락처:</strong><br>
+                                    <a href="mailto:ljg4129@naver.com" class="email">ljg4129@naver.com</a>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <button class="plan-nav-pill" onclick="state.screen='completion'; render();">
-                            다음 →
+                        <div class="plan-footer-nav">
+                            <button class="plan-nav-pill" onclick="state.screen='results'; render();">
+                                ← 이전
+                            </button>
+                            
+                            <button class="plan-nav-pill" onclick="state.screen='completion'; render();">
+                                다음 →
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 🆕 마무리 페이지
+            else if (state.screen === 'completion') {
+                app.innerHTML = `
+                    <div class="container">
+                        <div class="completion-card">
+                            <div class="completion-icon">🎉</div>
+                            <h1 class="completion-title">고생하셨습니다!</h1>
+                            <p class="completion-message">
+                                스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>
+                                검사 결과와 실천 전략을 바탕으로<br>
+                                더 건강한 일상을 만들어가시길 바랍니다.
+                            </p>
+                            <p class="completion-subtitle">
+                                언제든지 다시 검사해보시고,<br>
+                                꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="footer-bar">
+                        <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">
+                            처음으로 돌아가기
                         </button>
                     </div>
-                </div>
-            `;
+                `;
+            }
         }
-        
-        // 🆕 마무리 페이지
-        else if (state.screen === 'completion') {
-            app.innerHTML = `
-                <div class="container">
-                    <div class="completion-card">
-                        <div class="completion-icon">🎉</div>
-                        <h1 class="completion-title">고생하셨습니다!</h1>
-                        <p class="completion-message">
-                            스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>
-                            검사 결과와 실천 전략을 바탕으로<br>
-                            더 건강한 일상을 만들어가시길 바랍니다.
-                        </p>
-                        <p class="completion-subtitle">
-                            언제든지 다시 검사해보시고,<br>
-                            꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪
-                        </p>
-                    </div>
-                </div>
 
-                <div class="footer-bar">
-                    <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">
-                        처음으로 돌아가기
-                    </button>
-                </div>
-            `;
-        }
-    }
-
-    // 초기 렌더링
-    render();
-</script>
+        // 초기 렌더링
+        render();
+    </script>
 </body>
 </html>
