@@ -50,10 +50,10 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
             margin-bottom: 0;
-            display: block;
+            display: inline-block;
+            min-width: 400px;
             max-width: 90%;
             margin: 0 auto;
-            width: auto;
         }
 
         .title {
@@ -123,6 +123,7 @@
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
+            width: 100%;
         }
 
         /* 🆕 사용자 정보 입력 카드 - 가로로 길게 */
@@ -1277,8 +1278,8 @@
             }
 
             .title-box {
+                min-width: 300px;
                 padding: 0.5rem 1.5rem;
-                max-width: 95%;
             }
 
             /* 결과 페이지 태블릿 최적화 - 4x1 유지하되 크기 축소 */
@@ -1389,6 +1390,16 @@
                 font-size: 16px !important;
             }
 
+            .completion-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .completion-button {
+                width: 100%;
+                max-width: 200px;
+            }
+
             /* 답변 현황 간격 조정 */
             .review-container {
                 gap: 0.5rem !important;
@@ -1482,8 +1493,8 @@
             }
 
             .title-box {
+                min-width: 250px;
                 padding: 0.5rem 1rem;
-                max-width: 95%;
             }
 
             /* 결과 페이지 모바일 최적화 - 4x1 유지하되 더 작게 */
@@ -1609,6 +1620,16 @@
 
             .completion-message {
                 font-size: 14px !important;
+            }
+
+            .completion-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .completion-button {
+                width: 100%;
+                max-width: 200px;
             }
 
             /* 답변 현황 간격 조정 - 더 작게 */
@@ -2478,7 +2499,7 @@
                                 </div>
                                 <div class="traffic-item">
                                     <span class="traffic-icon">🔴</span>
-                                                                        <span class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</span>
+                                    <span class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</span>
                                 </div>
                             </div>
                         </div>
@@ -2508,41 +2529,29 @@
                         <div class="header" style="margin-bottom: 2rem;">
                             <div class="title-box">
                                 <h1 class="title">나의 스트레스 관리 실천 전략</h1>
-                                <p class="subtitle">개인별 맞춤형 스트레스 관리 계획을 세워보세요</p>
+                                <div class="subtitle">자유롭게 계획을 적어보세요</div>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <div class="plan-section">
-                                <h3 class="plan-title">📝 나만의 스트레스 관리 계획</h3>
-                                <textarea 
-                                    class="plan-textarea" 
-                                    placeholder="여기에 당신만의 스트레스 관리 방법을 자유롭게 적어보세요..."
-                                    rows="8"
-                                ></textarea>
-                            </div>
-
+                        <div class="plan-card">
+                            <textarea 
+                                class="plan-input" 
+                                placeholder="예: 매주 3회 운동, 카페인 줄이기, 주말 휴식 시간 확보 등"
+                                oninput="state.planText = this.value"
+                            >${state.planText}</textarea>
+                            
                             <div class="additional-info">
-                                <div class="info-section">
-                                    <h4 class="info-title">📚 스트레스와 정신건강 추가 정보</h4>
-                                    <div class="info-content">
-                                        <div class="info-item">
-                                            <span class="info-label">참고 자료:</span>
-                                            <span class="info-text">유튜브 '이재경교수TV', 길벗심리상담연구소 홈페이지</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <span class="info-label">문의:</span>
-                                            <span class="info-text">교육(강의), 심리상담 문의는 이재경 상담심리학박사 메일로 연락</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <span class="info-label">이메일:</span>
-                                            <span class="info-text">ljg4129@naver.com</span>
-                                        </div>
-                                    </div>
+                                <h4>스트레스와 정신건강 추가 정보</h4>
+                                <p>1. 유튜브 '이재경교수TV', 길벗심리상담연구소 홈페이지 참조</p>
+                                <p>2. 교육(강의), 심리상담 문의는 이재경 상담심리학박사 메일로 연락</p>
+                                
+                                <div class="contact-info">
+                                    <strong>연락처:</strong><br>
+                                    <a href="mailto:ljg4129@naver.com" class="email">ljg4129@naver.com</a>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="plan-footer-nav">
                             <button class="plan-nav-pill" onclick="state.screen='results'; render();">
                                 ← 이전
@@ -2552,41 +2561,33 @@
                                 다음 →
                             </button>
                         </div>
-
-                        <div style="height: 50px;"></div>
                     </div>
                 `;
             }
             
+            // 🆕 마무리 페이지
             else if (state.screen === 'completion') {
                 app.innerHTML = `
                     <div class="container">
-                        <div class="header" style="margin-bottom: 2rem;">
-                            <div class="title-box">
-                                <h1 class="title">검사 완료</h1>
-                                <p class="subtitle">스트레스 취약성 검사가 완료되었습니다</p>
-                            </div>
+                        <div class="completion-card">
+                            <div class="completion-icon">🎉</div>
+                            <h1 class="completion-title">고생하셨습니다!</h1>
+                            <p class="completion-message">
+                                스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>
+                                검사 결과와 실천 전략을 바탕으로<br>
+                                더 건강한 일상을 만들어가시길 바랍니다.
+                            </p>
+                            <p class="completion-subtitle">
+                                언제든지 다시 검사해보시고,<br>
+                                꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="card">
-                            <div class="completion-content">
-                                <div class="completion-icon">✅</div>
-                                <h2 class="completion-title">검사가 성공적으로 완료되었습니다!</h2>
-                                <p class="completion-text">
-                                    귀하의 스트레스 취약성 검사 결과를 바탕으로 개인별 맞춤형 스트레스 관리 전략을 수립하실 수 있습니다.
-                                </p>
-                                <div class="completion-actions">
-                                    <button class="completion-button primary" onclick="state.screen='intro'; render();">
-                                        처음으로
-                                    </button>
-                                    <button class="completion-button secondary" onclick="state.screen='results'; render();">
-                                        결과 다시 보기
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="height: 100px;"></div>
+                    <div class="footer-bar">
+                        <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">
+                            처음으로 돌아가기
+                        </button>
                     </div>
                 `;
             }
