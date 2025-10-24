@@ -1141,6 +1141,7 @@
             font-size: 0.95rem;
             margin-bottom: 0.8rem;
             line-height: 1.6;
+            word-break: keep-all;
         }
 
         .additional-info .contact-info {
@@ -2459,11 +2460,12 @@
                                 다음 →
                             </button>
                         </div>
+
                         <div style="height: 100px;"></div>
                     </div>
                 `;
             }
-            
+              
             else if (state.screen === 'plan') {
                 app.innerHTML = `
                     <div class="container">
@@ -2539,4 +2541,3 @@
     </script>
 </body>
 </html>
-    
