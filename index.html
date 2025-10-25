@@ -811,6 +811,94 @@
             font-weight: 500;
         }
 
+        /* 나이 선택 드롭다운 스타일 */
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 16px;
+            color: #a0aec0; /* 기본 상태는 연하게 */
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
+            height: 48px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .form-select option {
+            color: #2d3748; /* 선택된 옵션은 진하게 */
+            background: white;
+        }
+
+        /* 성별 라디오 버튼 스타일 - 테두리 추가 */
+        .gender-group {
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.8);
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .gender-group:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0;
+            width: 100%;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-input {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+
+        .radio-label {
+            font-size: 16px;
+            color: #2d3748;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
         /* 동의 체크박스 스타일 - 테두리 추가 */
         .consent-group {
             margin-bottom: 1.5rem;
@@ -1423,6 +1511,12 @@
             .plan-card {
                 margin-bottom: 0.5rem;
             }
+
+            /* 성별 라디오 버튼 모바일 */
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1655,6 +1749,19 @@
             font-size: 12px;
             font-style: italic;
         }
+
+        /* 첫 번째 페이지 출처 스타일 */
+        .intro-citation {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            color: #718096;
+            font-size: 12px;
+            font-style: italic;
+            background: rgba(255,255,255,0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body>
@@ -1740,7 +1847,8 @@
             questionFilter: 'all',
             unansweredQuestions: [],
             sessionAnsweredCount: 0,
-            userEmail: '',
+            userAge: '',
+            userGender: '',
             senderName: ''
         };
 
@@ -1772,7 +1880,8 @@
                 questionFilter: 'all',
                 unansweredQuestions: [],
                 sessionAnsweredCount: 0,
-                userEmail: '',
+                userAge: '',
+                userGender: '',
                 senderName: ''
             };
         }
@@ -2069,10 +2178,23 @@
             });
         }
 
+        // 나이 선택 드롭다운 색상 변경 함수
+        function updateAgeSelectColor() {
+            const ageSelect = document.getElementById('user-age');
+            if (ageSelect) {
+                if (ageSelect.value === '') {
+                    ageSelect.style.color = '#a0aec0'; // 연하게
+                } else {
+                    ageSelect.style.color = '#2d3748'; // 진하게
+                }
+            }
+        }
+
         // 사용자 정보 입력 검증 및 다음 단계로 진행
         function startTest() {
             const senderName = document.getElementById('user-name').value.trim();
-            const userEmail = document.getElementById('user-email').value.trim();
+            const userGender = document.querySelector('input[name="gender"]:checked');
+            const userAge = document.getElementById('user-age').value;
             const consentChecked = document.getElementById('consent').checked;
 
             if (!senderName) {
@@ -2080,15 +2202,13 @@
                 return;
             }
 
-            if (!userEmail) {
-                alert('이메일 주소를 입력해주세요.');
+            if (!userGender) {
+                alert('성별을 선택해주세요.');
                 return;
             }
 
-            // 이메일 형식 검증
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(userEmail)) {
-                alert('올바른 이메일 형식을 입력해주세요.');
+            if (!userAge) {
+                alert('나이를 선택해주세요.');
                 return;
             }
 
@@ -2100,7 +2220,8 @@
 
             // 사용자 정보 저장
             state.senderName = senderName;
-            state.userEmail = userEmail;
+            state.userGender = userGender.value;
+            state.userAge = userAge;
             
             // 질문 화면으로 이동
             state.screen = 'question';
@@ -2118,6 +2239,7 @@
                             <h1 class="intro-title">스트레스 취약성 검사</h1>
                             <p class="intro-subtitle">8가지 영역의 질문으로 스트레스 취약성을 확인해보세요.<br>각 질문에 대해 솔직하게 답변해주세요.<br>(답변하기 곤란한 문항은 무응답 처리 가능)</p>
                             <button class="primary-button" onclick="state.screen='user-info'; render();">시작하기</button>
+                            <div class="intro-citation">* 출처 : James Cranwell Ward (1990)</div>
                         </div>
 
                         <div class="qr-section">
@@ -2161,7 +2283,7 @@
                     <div class="container">
                         <div class="user-info-card card">
                             <h1 class="intro-title">사용자 정보 입력</h1>
-                            <p class="intro-subtitle">검사를 시작하기 전에 이름과 이메일 주소를 입력해주세요.</p>
+                            <p class="intro-subtitle">검사를 시작하기 전에 이름, 성별, 나이를 입력해주세요.</p>
                             
                             <div class="user-info-form">
                                 <div class="form-group">
@@ -2176,14 +2298,35 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label class="form-label">이메일 주소</label>
-                                    <input 
-                                        type="email" 
-                                        id="user-email"
-                                        class="form-input" 
-                                        placeholder="이메일 주소를 입력하세요"
-                                        value="${state.userEmail}"
-                                    />
+                                    <label class="form-label">성별</label>
+                                    <div class="gender-group">
+                                        <div class="radio-group">
+                                            <div class="radio-item">
+                                                <input type="radio" id="gender-male" name="gender" value="남성" class="radio-input" ${state.userGender === '남성' ? 'checked' : ''}>
+                                                <label for="gender-male" class="radio-label">남성</label>
+                                            </div>
+                                            <div class="radio-item">
+                                                <input type="radio" id="gender-female" name="gender" value="여성" class="radio-input" ${state.userGender === '여성' ? 'checked' : ''}>
+                                                <label for="gender-female" class="radio-label">여성</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">나이</label>
+                                    <select id="user-age" class="form-select" onchange="updateAgeSelectColor()">
+                                        <option value="">나이를 선택하세요</option>
+                                        <option value="10대" ${state.userAge === '10대' ? 'selected' : ''}>10대</option>
+                                        <option value="20대" ${state.userAge === '20대' ? 'selected' : ''}>20대</option>
+                                        <option value="30대" ${state.userAge === '30대' ? 'selected' : ''}>30대</option>
+                                        <option value="40대" ${state.userAge === '40대' ? 'selected' : ''}>40대</option>
+                                        <option value="50대" ${state.userAge === '50대' ? 'selected' : ''}>50대</option>
+                                        <option value="60대" ${state.userAge === '60대' ? 'selected' : ''}>60대</option>
+                                        <option value="70대" ${state.userAge === '70대' ? 'selected' : ''}>70대</option>
+                                        <option value="80대" ${state.userAge === '80대' ? 'selected' : ''}>80대</option>
+                                        <option value="90대" ${state.userAge === '90대' ? 'selected' : ''}>90대</option>
+                                    </select>
                                 </div>
                                 
                                 <div class="consent-group">
@@ -2201,6 +2344,9 @@
                         </div>
                     </div>
                 `;
+                
+                // 나이 선택 드롭다운 색상 초기화
+                setTimeout(updateAgeSelectColor, 100);
             }
             
             else if (state.screen === 'question') {
@@ -2373,7 +2519,6 @@
                                                 <div class="type-label">${type.key}유형</div>
                                                 <div class="type-name">${type.label}</div>
                                             </div>
-                                            
                                             <div class="questions-section">
                                                 ${typeInfo[type.key].questions.map(qNum => `
                                                     <div class="question-item">
@@ -2464,10 +2609,6 @@
                             <button class="results-nav-pill" onclick="state.screen='review'; render();">
                                 ← 이전
                             </button>
-                            
-                            <div class="citation">
-                                * 출처 : James Cranwell Ward (1990)
-                                             </div>
                             
                             <button class="results-nav-pill" onclick="state.screen='plan'; render();">
                                 다음 →
