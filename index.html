@@ -869,6 +869,7 @@
             gap: 1rem;
             margin-top: 0;
             width: 100%;
+            justify-content: center;
         }
 
         .radio-item {
@@ -1512,10 +1513,11 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* 성별 라디오 버튼 모바일 */
+            /* 성별 라디오 버튼 모바일 - 가로 유지 */
             .radio-group {
-                flex-direction: column;
-                gap: 0.5rem;
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: center;
             }
         }
 
@@ -1721,6 +1723,13 @@
             /* 실천 전략 카드 작은 화면 */
             .plan-card {
                 margin-bottom: 0.25rem;
+            }
+
+            /* 성별 라디오 버튼 작은 화면 - 가로 유지 */
+            .radio-group {
+                flex-direction: row;
+                gap: 0.5rem;
+                justify-content: center;
             }
         }
 
@@ -2442,7 +2451,7 @@
                                     </div>
                                 </div>
                             ` : ''}
-                        </div>
+                             </div>
                         
                         <div class="review-footer-nav">
                             ${unanswered.length > 0 ? `
