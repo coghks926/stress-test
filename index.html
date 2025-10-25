@@ -869,7 +869,7 @@
             gap: 1rem;
             margin-top: 0;
             width: 100%;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .radio-item {
@@ -1513,11 +1513,11 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* 성별 라디오 버튼 모바일 - 가로 유지 */
+            /* 성별 라디오 버튼 모바일 - 가로 유지, 왼쪽 정렬 */
             .radio-group {
                 flex-direction: row;
                 gap: 1rem;
-                justify-content: center;
+                justify-content: flex-start;
             }
         }
 
@@ -1725,11 +1725,11 @@
                 margin-bottom: 0.25rem;
             }
 
-            /* 성별 라디오 버튼 작은 화면 - 가로 유지 */
+            /* 성별 라디오 버튼 작은 화면 - 가로 유지, 왼쪽 정렬 */
             .radio-group {
                 flex-direction: row;
                 gap: 0.5rem;
-                justify-content: center;
+                justify-content: flex-start;
             }
         }
 
@@ -2451,7 +2451,7 @@
                                     </div>
                                 </div>
                             ` : ''}
-                             </div>
+                        </div>
                         
                         <div class="review-footer-nav">
                             ${unanswered.length > 0 ? `
