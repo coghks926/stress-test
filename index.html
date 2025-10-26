@@ -816,7 +816,7 @@
             width: 100%;
             padding: 0.75rem 1rem;
             font-size: 16px;
-            color: #a0aec0; /* 기본 상태는 연하게 */
+            color: #a0aec0;
             border: 2px solid #e2e8f0;
             border-radius: 0.5rem;
             font-family: inherit;
@@ -841,7 +841,7 @@
         }
 
         .form-select option {
-            color: #2d3748; /* 선택된 옵션은 진하게 */
+            color: #2d3748;
             background: white;
         }
 
@@ -1778,11 +1778,9 @@
         <div id="app"></div>
     </div>
 
-    <!-- QR코드 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
     <script>
-        // 질문 데이터
         const questions = [
             { id: 1, text: "적절한 음식을 적당량 먹는다.", type: "A" },
             { id: 2, text: "점심식사 때 술을 마시지 않는다.", type: "B" },
@@ -1834,7 +1832,6 @@
             { id: 48, text: "스트레스 상황을 극복하는 것을 배운 적이 있다.", type: "H" }
         ];
 
-        // 유형별 질문 번호
         const typeInfo = {
             A: { name: "식생활", questions: [1, 9, 17, 25, 33, 41] },
             B: { name: "금주/금연", questions: [2, 10, 18, 26, 34, 42] },
@@ -1846,7 +1843,6 @@
             H: { name: "자기이해수용", questions: [8, 16, 24, 32, 40, 48] }
         };
 
-        // 앱 상태
         let state = {
             screen: 'intro',
             currentQuestion: 0,
@@ -1861,7 +1857,6 @@
             senderName: ''
         };
 
-        // 점수 계산
         function calculateScores() {
             const scores = {};
             Object.keys(typeInfo).forEach(type => {
@@ -1871,14 +1866,12 @@
             return scores;
         }
 
-        // 점수 색상
         function getScoreColor(score) {
             if (score <= 9) return '#e53e3e';
             if (score >= 15) return '#38a169';
             return '#2d3748';
         }
 
-        // 테스트 리셋
         function resetTest() {
             state = {
                 screen: 'intro',
@@ -1895,13 +1888,11 @@
             };
         }
 
-        // 답변 선택
         function selectAnswer(score) {
             state.pendingChoice = score;
             render();
         }
 
-        // 필터링된 질문들 반환
         function getFilteredQuestions() {
             if (state.questionFilter === 'answered') {
                 return questions.filter(q => state.answers[q.id] !== undefined);
@@ -1911,7 +1902,6 @@
             return questions;
         }
 
-        // 현재 질문 정보
         function getCurrentQuestionInfo() {
             const filteredQuestions = getFilteredQuestions();
             const currentIndex = filteredQuestions.findIndex(q => q.id === questions[state.currentQuestion].id);
@@ -1932,7 +1922,6 @@
             };
         }
 
-        // 다음으로 진행
         function confirmAndNext() {
             const qNum = state.currentQuestion + 1;
             if (state.pendingChoice !== null) {
@@ -1957,7 +1946,6 @@
             render();
         }
 
-        // 이전 질문
         function goToPrevious() {
             const filteredQuestions = getFilteredQuestions();
             const currentIndex = filteredQuestions.findIndex(q => q.id === questions[state.currentQuestion].id);
@@ -1971,7 +1959,6 @@
             render();
         }
 
-        // 다음 질문
         function goToNext() {
             const filteredQuestions = getFilteredQuestions();
             const currentIndex = filteredQuestions.findIndex(q => q.id === questions[state.currentQuestion].id);
@@ -1985,7 +1972,6 @@
             render();
         }
 
-        // 특정 질문으로 이동
         function goToQuestion(index) {
             state.currentQuestion = index;
             state.pendingChoice = state.answers[index + 1] ?? null;
@@ -1999,18 +1985,15 @@
             render();
         }
 
-        // 답변 완료된 질문들
         function getAnsweredQuestions() {
             return Object.keys(state.answers).map(Number).sort((a,b) => a-b);
         }
 
-        // 미답변 질문들
         function getUnansweredQuestions() {
             const answered = new Set(getAnsweredQuestions());
             return Array.from({length:48},(_,i)=>i+1).filter(n=>!answered.has(n));
         }
 
-        // 모바일 대응 QR코드 생성 함수 - 완전히 새로 작성
         function generateQRCode() {
             console.log('=== 모바일 대응 QR코드 생성 시작 ===');
             
@@ -2025,7 +2008,6 @@
             
             console.log('✅ QR 컨테이너 발견');
             
-            // 모바일 감지
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             console.log('모바일 기기 감지:', isMobile);
             
@@ -2038,12 +2020,10 @@
             }
         }
 
-        // 모바일 전용 QR코드 생성
         function generateMobileQRCode() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
             
-            // 방법 1: Google Charts API 사용 (모바일에서 가장 안정적)
             const img = document.createElement('img');
             img.src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(url)}`;
             img.alt = 'QR Code';
@@ -2052,21 +2032,17 @@
             img.style.borderRadius = '0.5rem';
             img.style.display = 'block';
             
-            // 이미지 로드 성공
             img.onload = function() {
                 console.log('✅ Google Charts QR코드 로드 성공');
                 qrContainer.appendChild(img);
             };
             
-            // 이미지 로드 실패
             img.onerror = function() {
                 console.log('❌ Google Charts QR코드 로드 실패');
-                // 방법 2: QRServer API 사용
                 generateMobileQRCodeFallback();
             };
         }
 
-        // 모바일 폴백 방법
         function generateMobileQRCodeFallback() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -2086,17 +2062,14 @@
             
             img.onerror = function() {
                 console.log('❌ 모든 QR코드 생성 실패');
-                // 최종 폴백: URL 표시
                 generateQRCodeFinalFallback();
             };
         }
 
-        // 데스크탑 전용 QR코드 생성
         function generateDesktopQRCode() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
             
-            // 방법 1: QRCode.js 라이브러리 사용
             if (typeof QRCode !== 'undefined') {
                 console.log('✅ QRCode.js 라이브러리 사용');
                 
@@ -2113,7 +2086,6 @@
                 }, function (error) {
                     if (error) {
                         console.error('❌ QRCode.js 실패:', error);
-                        // 폴백으로 이미지 사용
                         generateDesktopQRCodeFallback();
                     } else {
                         console.log('✅ QRCode.js 성공!');
@@ -2125,7 +2097,6 @@
             }
         }
 
-        // 데스크탑 폴백 방법
         function generateDesktopQRCodeFallback() {
             const qrContainer = document.getElementById('qr-code');
             const url = 'https://coghks926.github.io/stress-test/';
@@ -2148,7 +2119,6 @@
             };
         }
 
-        // 최종 폴백 방법: URL 표시
         function generateQRCodeFinalFallback() {
             console.log('=== 최종 폴백 방법: URL 표시 ===');
             
@@ -2156,13 +2126,9 @@
             const fallbackContainer = document.getElementById('qr-fallback');
             const url = 'https://coghks926.github.io/stress-test/';
             
-            // QR코드 컨테이너 숨기기
             qrContainer.style.display = 'none';
-            
-            // 폴백 컨테이너 표시
             fallbackContainer.classList.add('show');
             
-            // URL 표시
             const urlElement = document.getElementById('qr-url');
             if (urlElement) {
                 urlElement.textContent = url;
@@ -2171,13 +2137,11 @@
             console.log('✅ URL 폴백 표시 완료');
         }
 
-        // URL 복사 함수
         function copyURL() {
             const url = 'https://coghks926.github.io/stress-test/';
             navigator.clipboard.writeText(url).then(function() {
                 alert('URL이 클립보드에 복사되었습니다!');
             }).catch(function() {
-                // 폴백: 텍스트 선택
                 const urlElement = document.getElementById('qr-url');
                 if (urlElement) {
                     urlElement.select();
@@ -2187,19 +2151,17 @@
             });
         }
 
-        // 나이 선택 드롭다운 색상 변경 함수
         function updateAgeSelectColor() {
             const ageSelect = document.getElementById('user-age');
             if (ageSelect) {
                 if (ageSelect.value === '') {
-                    ageSelect.style.color = '#a0aec0'; // 연하게
+                    ageSelect.style.color = '#a0aec0';
                 } else {
-                    ageSelect.style.color = '#2d3748'; // 진하게
+                    ageSelect.style.color = '#2d3748';
                 }
             }
         }
 
-        // 사용자 정보 입력 검증 및 다음 단계로 진행
         function startTest() {
             const senderName = document.getElementById('user-name').value.trim();
             const userGender = document.querySelector('input[name="gender"]:checked');
@@ -2221,27 +2183,39 @@
                 return;
             }
 
-            // 동의 체크 검증
             if (!consentChecked) {
                 alert('개인정보 활용에 동의해주세요.');
                 return;
             }
 
-            // 사용자 정보 저장
             state.senderName = senderName;
             state.userGender = userGender.value;
             state.userAge = userAge;
             
-            // 질문 화면으로 이동
             state.screen = 'question';
             render();
         }
 
-        // 화면 렌더링
+        function getTrafficLightForType(typeKey, scores) {
+            const allScores = Object.keys(scores).map(key => ({
+                type: key,
+                score: scores[key]
+            })).sort((a, b) => a.score - b.score);
+            
+            const currentScore = scores[typeKey];
+            const firstSameScoreIndex = allScores.findIndex(item => item.score === currentScore);
+            
+            if (firstSameScoreIndex === 0) {
+                return { color: '#ef4444', icon: '🔴', text: '주의' };
+            } else if (firstSameScoreIndex >= 1 && firstSameScoreIndex <= 2) {
+                return { color: '#f59e0b', icon: '🟡', text: '보통' };
+            } else {
+                return { color: '#10b981', icon: '🟢', text: '양호' };
+            }
+        }
+
         function render() {
             const app = document.getElementById('app');
-            
-            // 페이지 전환 시 상단으로 스크롤
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             if (state.screen === 'intro') {
@@ -2284,12 +2258,9 @@
                         </div>
                     </div>
                 `;
-                
-                // QR코드 생성 함수 호출 (DOM이 로드된 후)
                 setTimeout(generateQRCode, 100);
             }
             
-            // 사용자 정보 입력 화면 - 가로로 길게
             else if (state.screen === 'user-info') {
                 app.innerHTML = `
                     <div class="container">
@@ -2356,8 +2327,6 @@
                         </div>
                     </div>
                 `;
-                
-                // 나이 선택 드롭다운 색상 초기화
                 setTimeout(updateAgeSelectColor, 100);
             }
             
@@ -2416,7 +2385,7 @@
                     </div>
                 `;
             }
-            
+                
             else if (state.screen === 'review') {
                 const answered = getAnsweredQuestions();
                 const unanswered = getUnansweredQuestions();
@@ -2461,9 +2430,7 @@
                                 <button class="review-nav-pill" onclick="state.questionFilter='unanswered'; state.screen='question'; state.unansweredQuestions=${JSON.stringify(unanswered)}; state.sessionAnsweredCount=0; state.currentQuestion=${unanswered[0]-1}; render();">
                                     이어하기
                                 </button>
-                            ` : `
-                                <div></div>
-                            `}
+                            ` : `<div></div>`}
                             
                             <button class="review-nav-pill results" onclick="state.screen='results'; render();">
                                 결과 보기
@@ -2476,7 +2443,6 @@
             else if (state.screen === 'results') {
                 const scores = calculateScores();
                 
-                // 신체 영역과 정신 영역 분리
                 const physicalTypes = [
                     { key: 'A', label: '식생활' },
                     { key: 'B', label: '금주/금연' },
@@ -2486,23 +2452,12 @@
                 
                 const mentalTypes = [
                     { key: 'D', label: '정서적 안정' },
-                    { key: 'F', label: '여가활동' },
+                          { key: 'F', label: '여가활동' },
                     { key: 'G', label: '일생활균형' },
                     { key: 'H', label: '자기이해수용' }
                 ];
                 
                 const getCellScore = (qNum) => (state.answers[qNum] ?? '');
-                
-                // 신호등 색상 및 아이콘
-                function getTrafficLight(score) {
-                    if (score <= 9) {
-                        return { color: '#ef4444', icon: '🔴', text: '주의' };
-                    } else if (score >= 15) {
-                        return { color: '#10b981', icon: '🟢', text: '양호' };
-                    } else {
-                        return { color: '#f59e0b', icon: '🟡', text: '보통' };
-                    }
-                }
 
                 app.innerHTML = `
                     <div class="container">
@@ -2512,7 +2467,6 @@
                             </div>
                         </div>
 
-                        <!-- 신체 영역 -->
                         <div class="area-section">
                             <div class="area-header">
                                 <div class="area-title-box">
@@ -2524,7 +2478,7 @@
                             <div class="results-grid">
                                 ${physicalTypes.map(type => {
                                     const score = scores[type.key];
-                                    const trafficLight = getTrafficLight(score);
+                                    const trafficLight = getTrafficLightForType(type.key, scores);
                                     return `
                                         <div class="type-card">
                                             <div class="type-header">
@@ -2543,7 +2497,6 @@
                                             <div class="score-section">
                                                 <div class="traffic-light" style="color: ${trafficLight.color}">
                                                     <span class="traffic-icon">${trafficLight.icon}</span>
-                                                    <span class="traffic-text">${trafficLight.text}</span>
                                                 </div>
                                                 <div class="total-score" style="color: ${trafficLight.color}">
                                                     ${score}점
@@ -2555,7 +2508,6 @@
                             </div>
                         </div>
 
-                        <!-- 정신 영역 -->
                         <div class="area-section">
                             <div class="area-header">
                                 <div class="area-title-box">
@@ -2567,7 +2519,7 @@
                             <div class="results-grid">
                                 ${mentalTypes.map(type => {
                                     const score = scores[type.key];
-                                    const trafficLight = getTrafficLight(score);
+                                    const trafficLight = getTrafficLightForType(type.key, scores);
                                     return `
                                         <div class="type-card">
                                             <div class="type-header">
@@ -2587,7 +2539,6 @@
                                             <div class="score-section">
                                                 <div class="traffic-light" style="color: ${trafficLight.color}">
                                                     <span class="traffic-icon">${trafficLight.icon}</span>
-                                                    <span class="traffic-text">${trafficLight.text}</span>
                                                 </div>
                                                 <div class="total-score" style="color: ${trafficLight.color}">
                                                     ${score}점
@@ -2602,18 +2553,9 @@
                         <div class="interpretation-guide">
                             <div class="interpretation-title">해석 가이드</div>
                             <div class="traffic-guide">
-                                <div class="traffic-item">
-                                    <span class="traffic-icon">🟢</span>
-                                    <span class="traffic-text">15점 이상: 양호 - 잘 견디고 있다는 증거</span>
-                                </div>
-                                <div class="traffic-item">
-                                    <span class="traffic-icon">🟡</span>
-                                    <span class="traffic-text">10-14점: 보통 - 일반적인 수준</span>
-                                </div>
-                                <div class="traffic-item">
-                                    <span class="traffic-icon">🔴</span>
-                                    <span class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</span>
-                                </div>
+                                <div class="traffic-text">15점 이상: 양호 - 잘 견디고 있다는 증거</div>
+                                <div class="traffic-text">10-14점: 보통 - 일반적인 수준</div>
+                                <div class="traffic-text">9점 이하: 주의 - 스트레스에 대한 반응이 부정적 경향</div>
                             </div>
                         </div>
 
@@ -2674,7 +2616,6 @@
                 `;
             }
             
-            // 마무리 페이지
             else if (state.screen === 'completion') {
                 app.innerHTML = `
                     <div class="container">
@@ -2702,7 +2643,6 @@
             }
         }
 
-        // 초기 렌더링
         render();
     </script>
 </body>
