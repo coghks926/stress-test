@@ -35,7 +35,6 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일 - 반응형으로 수정 */
         .header {
             text-align: center;
             margin-bottom: 1rem;
@@ -102,7 +101,6 @@
             margin-left: 0.5rem;
         }
 
-        /* 카드 스타일 */
         .card {
             background: rgba(255,255,255,0.95);
             border-radius: 1.5rem;
@@ -127,7 +125,6 @@
             width: 100%;
         }
 
-        /* 사용자 정보 입력 카드 - 가로로 길게 */
         .user-info-card {
             text-align: center;
             margin-top: 4rem;
@@ -160,7 +157,6 @@
             line-height: 1.4;
         }
 
-        /* QR코드 스타일 - 모바일 대응 */
         .qr-section {
             margin-top: 2rem;
             padding: 2rem;
@@ -288,7 +284,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* 질문 카드 */
         .question-card {
             margin-bottom: 1.5rem;
             min-height: 180px;
@@ -323,7 +318,6 @@
             white-space: normal;
         }
 
-        /* 버튼 스타일 */
         .primary-button {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -406,7 +400,6 @@
             box-shadow: 0 12px 24px rgba(47, 133, 90, 0.5);
         }
 
-        /* 네비게이션 - 질문 페이지용 (더 큰 크기) */
         .footer-nav {
             display: flex;
             justify-content: space-between;
@@ -468,10 +461,6 @@
             color: #4a5568;
         }
 
-        .nav-pill.dev-button {
-            background: linear-gradient(135deg, #6b7280, #9ca3af);
-        }
-
         .center-buttons {
             display: flex;
             flex-direction: column;
@@ -481,7 +470,6 @@
             max-width: 140px;
         }
 
-        /* 답변 현황 */
         .review-container {
             display: flex;
             flex-direction: column;
@@ -547,7 +535,6 @@
             font-weight: 700;
         }
 
-        /* 새로운 결과 페이지 스타일 - 영역별 분리 */
         .area-section {
             margin-bottom: 3rem;
         }
@@ -693,7 +680,6 @@
             font-weight: 800;
         }
 
-        /* 실천 전략 */
         .plan-card {
             background: rgba(255,255,255,0.95);
             padding: 2rem;
@@ -731,44 +717,6 @@
             font-weight: 500;
         }
 
-        /* 이메일 입력 스타일 */
-        .email-card {
-            background: rgba(255,255,255,0.95);
-            padding: 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 6rem;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 16px;
-            color: #2d3748;
-            border: 2px solid #e2e8f0;
-            border-radius: 1rem;
-            font-family: inherit;
-            line-height: 1.7;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.8);
-            margin-bottom: 1.5rem;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            background: white;
-        }
-
-        .email-input::placeholder {
-            color: #a0aec0;
-            font-weight: 500;
-        }
-
-        /* 사용자 정보 입력 폼 스타일 - 가로로 길고 얇게 */
         .user-info-form {
             text-align: left;
         }
@@ -811,7 +759,6 @@
             font-weight: 500;
         }
 
-        /* 나이 선택 드롭다운 스타일 */
         .form-select {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -845,7 +792,6 @@
             background: white;
         }
 
-        /* 성별 라디오 버튼 스타일 - 테두리 추가 */
         .gender-group {
             margin-bottom: 1.5rem;
             padding: 0.75rem 1rem;
@@ -900,7 +846,6 @@
             font-weight: 500;
         }
 
-        /* 동의 체크박스 스타일 - 테두리 추가 */
         .consent-group {
             margin-bottom: 1.5rem;
             padding: 1rem;
@@ -942,7 +887,6 @@
             cursor: pointer;
         }
 
-        /* 마무리 페이지 스타일 */
         .completion-card {
             background: rgba(255,255,255,0.95);
             padding: 3rem;
@@ -981,39 +925,6 @@
             line-height: 1.6;
         }
 
-        /* 이메일 성공 화면 스타일 */
-        .success-card {
-            background: rgba(255,255,255,0.95);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-
-        .success-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .success-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #38a169;
-            margin-bottom: 1rem;
-        }
-
-        .success-message {
-            font-size: 16px;
-            color: #4a5568;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* 하단 바 - 원래 크기로 복원 */
         .footer-bar {
             position: fixed;
             bottom: 2rem;
@@ -1032,7 +943,6 @@
             flex: none;
         }
 
-        /* 해석 가이드 */
         .interpretation-guide {
             margin-top: 2rem;
             display: flex;
@@ -1072,23 +982,6 @@
             font-weight: 500;
         }
 
-        .interpretation-text {
-            color: #4a5568;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .score-red {
-            color: #e53e3e;
-            font-weight: 800;
-        }
-
-        .score-green {
-            color: #38a169;
-            font-weight: 800;
-        }
-
-        /* 답변 현황 페이지 하단 버튼 스타일 - 이전/다음 버튼처럼 */
         .review-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1149,11 +1042,6 @@
             box-shadow: 0 6px 12px rgba(240, 147, 251, 0.3);
         }
 
-        .review-nav-pill.results:hover {
-            box-shadow: 0 8px 16px rgba(240, 147, 251, 0.4);
-        }
-
-        /* 결과 페이지 하단 버튼 스타일 - 질문 페이지와 같은 크기 */
         .results-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1209,7 +1097,6 @@
             box-shadow: none;
         }
 
-        /* 스트레스 관리 실천 전략 페이지 추가 정보 스타일 */
         .additional-info {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
             border-radius: 1rem;
@@ -1233,7 +1120,6 @@
             word-break: keep-all;
         }
 
-        /* 모바일에서만 줄바꿈 허용하는 클래스 */
         .mobile-break {
             white-space: nowrap;
         }
@@ -1261,7 +1147,6 @@
             text-decoration: underline;
         }
 
-        /* 스트레스 관리 실천 전략 페이지 하단 버튼 스타일 - 결과 페이지와 같은 크기 */
         .plan-footer-nav {
             display: flex;
             justify-content: space-between;
@@ -1317,7 +1202,6 @@
             box-shadow: none;
         }
 
-        /* 반응형 디자인 - 질문 페이지 버튼 더 크게 */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -1331,7 +1215,6 @@
                 min-height: 150px;
             }
             
-            /* 질문 페이지 네비게이션 버튼 더 크게 */
             .footer-nav .nav-pill {
                 font-size: 14px !important;
                 padding: 0.8rem 1rem !important;
@@ -1367,7 +1250,6 @@
                 height: 150px;
             }
 
-            /* 결과 페이지 태블릿 최적화 - 4x1 유지하되 크기 축소 */
             .results-grid {
                 grid-template-columns: repeat(4, 1fr) !important;
                 gap: 0.5rem !important;
@@ -1415,7 +1297,6 @@
                 gap: 0.5rem;
             }
 
-            /* 답변 현황 페이지 하단 버튼 모바일 */
             .review-footer-nav .review-nav-pill {
                 font-size: 14px !important;
                 padding: 0.8rem 1rem !important;
@@ -1427,7 +1308,6 @@
                 gap: 0.5rem !important;
             }
 
-            /* 결과 페이지 하단 버튼 모바일 - 질문 페이지와 같은 크기 */
             .results-footer-nav .results-nav-pill {
                 font-size: 14px !important;
                 padding: 0.8rem 1rem !important;
@@ -1440,7 +1320,6 @@
                 margin-top: 0.67rem !important;
             }
 
-            /* 스트레스 관리 실천 전략 페이지 하단 버튼 모바일 - 결과 페이지와 같은 크기 */
             .plan-footer-nav .plan-nav-pill {
                 font-size: 14px !important;
                 padding: 0.8rem 1rem !important;
@@ -1453,22 +1332,10 @@
                 margin-top: 0.17rem !important;
             }
 
-            /* 마무리 페이지 모바일 */
             .completion-card {
                 padding: 2rem;
             }
 
-            .completion-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .completion-button {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            /* 답변 현황 간격 조정 */
             .review-container {
                 gap: 0.5rem !important;
                 margin-bottom: 0.5rem !important;
@@ -1487,7 +1354,6 @@
                 font-size: 12px !important;
             }
 
-            /* 추가 정보 모바일 */
             .additional-info {
                 padding: 1.2rem;
             }
@@ -1500,7 +1366,6 @@
                 font-size: 0.9rem;
             }
 
-            /* 모바일에서만 줄바꿈 허용 */
             .mobile-break {
                 white-space: normal;
                 word-break: keep-all;
@@ -1508,12 +1373,10 @@
                 hyphens: none;
             }
 
-            /* 실천 전략 카드 모바일 */
             .plan-card {
                 margin-bottom: 0.5rem;
             }
 
-            /* 성별 라디오 버튼 모바일 - 가로 유지, 왼쪽 정렬 */
             .radio-group {
                 flex-direction: row;
                 gap: 1rem;
@@ -1530,7 +1393,6 @@
                 padding: 1rem;
             }
             
-            /* 더 작은 화면에서 질문 페이지 버튼 더 크게 */
             .footer-nav .nav-pill {
                 font-size: 13px !important;
                 padding: 0.7rem 0.8rem !important;
@@ -1566,7 +1428,6 @@
                 height: 120px;
             }
 
-            /* 결과 페이지 모바일 최적화 - 4x1 유지하되 더 작게 */
             .results-grid {
                 grid-template-columns: repeat(4, 1fr) !important;
                 gap: 0.25rem !important;
@@ -1631,7 +1492,6 @@
                 font-size: 14px !important;
             }
 
-            /* 답변 현황 페이지 하단 버튼 작은 화면 */
             .review-footer-nav .review-nav-pill {
                 font-size: 13px !important;
                 padding: 0.7rem 0.8rem !important;
@@ -1643,7 +1503,6 @@
                 gap: 0.4rem !important;
             }
 
-            /* 결과 페이지 하단 버튼 작은 화면 - 질문 페이지와 같은 크기 */
             .results-footer-nav .results-nav-pill {
                 font-size: 13px !important;
                 padding: 0.7rem 0.8rem !important;
@@ -1656,7 +1515,6 @@
                 margin-top: 0.67rem !important;
             }
 
-            /* 스트레스 관리 실천 전략 페이지 하단 버튼 작은 화면 - 결과 페이지와 같은 크기 */
             .plan-footer-nav .plan-nav-pill {
                 font-size: 13px !important;
                 padding: 0.7rem 0.8rem !important;
@@ -1669,22 +1527,10 @@
                 margin-top: 0.17rem !important;
             }
 
-            /* 마무리 페이지 작은 화면 */
             .completion-card {
                 padding: 1.5rem;
             }
 
-            .completion-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .completion-button {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            /* 답변 현황 간격 조정 - 더 작게 */
             .review-container {
                 gap: 0.25rem !important;
                 margin-bottom: 0.25rem !important;
@@ -1707,7 +1553,6 @@
                 margin-top: 0.5rem !important;
             }
 
-            /* 추가 정보 작은 화면 */
             .additional-info {
                 padding: 1rem;
             }
@@ -1720,12 +1565,10 @@
                 font-size: 0.85rem;
             }
 
-            /* 실천 전략 카드 작은 화면 */
             .plan-card {
                 margin-bottom: 0.25rem;
             }
 
-            /* 성별 라디오 버튼 작은 화면 - 가로 유지, 왼쪽 정렬 */
             .radio-group {
                 flex-direction: row;
                 gap: 0.5rem;
@@ -1733,7 +1576,6 @@
             }
         }
 
-        /* 애니메이션 */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -1749,17 +1591,6 @@
             animation: fadeIn 0.6s ease-out;
         }
 
-        /* 출처 스타일 */
-        .citation {
-            text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            color: rgba(255,255,255,0.7);
-            font-size: 12px;
-            font-style: italic;
-        }
-
-        /* 첫 번째 페이지 출처 스타일 */
         .intro-citation {
             text-align: center;
             margin-top: 1rem;
@@ -1888,6 +1719,45 @@
             };
         }
 
+        async function saveToSheet() {
+            const scores = calculateScores();
+            const url = 'https://script.google.com/macros/s/AKfycbz9VDoqZorxJS6e3MIe9aQjHWaQO3ZTJOnK3IFY4UcqtKbsGaa5HfIeqOCn0sn1W0lv/exec';
+            
+            // 각 유형별 색상 정보 계산
+            const colorInfo = {};
+            Object.keys(scores).forEach(type => {
+                const trafficLight = getTrafficLightForType(type, scores);
+                colorInfo[type] = {
+                    color: trafficLight.color,  // '#ef4444', '#f59e0b', '#10b981'
+                    text: trafficLight.text     // '주의', '보통', '양호'
+                };
+            });
+            
+            const data = {
+                senderName: state.senderName,
+                userGender: state.userGender,
+                userAge: state.userAge,
+                answers: state.answers,
+                scores: scores,
+                colorInfo: colorInfo,  // 색상 정보 추가
+                planText: state.planText
+            };
+            
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                console.log('결과 저장 완료!');
+            } catch (error) {
+                console.error('저장 실패:', error);
+            }
+        }
+
         function selectAnswer(score) {
             state.pendingChoice = score;
             render();
@@ -1998,7 +1868,6 @@
             console.log('=== 모바일 대응 QR코드 생성 시작 ===');
             
             const qrContainer = document.getElementById('qr-code');
-            const fallbackContainer = document.getElementById('qr-fallback');
             const url = 'https://coghks926.github.io/stress-test/';
             
             if (!qrContainer) {
@@ -2009,13 +1878,10 @@
             console.log('✅ QR 컨테이너 발견');
             
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            console.log('모바일 기기 감지:', isMobile);
             
             if (isMobile) {
-                console.log('📱 모바일 기기에서 QR코드 생성');
                 generateMobileQRCode();
             } else {
-                console.log('💻 데스크탑에서 QR코드 생성');
                 generateDesktopQRCode();
             }
         }
@@ -2038,7 +1904,6 @@
             };
             
             img.onerror = function() {
-                console.log('❌ Google Charts QR코드 로드 실패');
                 generateMobileQRCodeFallback();
             };
         }
@@ -2061,7 +1926,6 @@
             };
             
             img.onerror = function() {
-                console.log('❌ 모든 QR코드 생성 실패');
                 generateQRCodeFinalFallback();
             };
         }
@@ -2071,8 +1935,6 @@
             const url = 'https://coghks926.github.io/stress-test/';
             
             if (typeof QRCode !== 'undefined') {
-                console.log('✅ QRCode.js 라이브러리 사용');
-                
                 const canvas = document.createElement('canvas');
                 qrContainer.appendChild(canvas);
                 
@@ -2085,14 +1947,10 @@
                     }
                 }, function (error) {
                     if (error) {
-                        console.error('❌ QRCode.js 실패:', error);
                         generateDesktopQRCodeFallback();
-                    } else {
-                        console.log('✅ QRCode.js 성공!');
                     }
                 });
             } else {
-                console.log('❌ QRCode.js 라이브러리 없음');
                 generateDesktopQRCodeFallback();
             }
         }
@@ -2109,32 +1967,20 @@
             img.style.borderRadius = '0.5rem';
             
             img.onload = function() {
-                console.log('✅ 데스크탑 이미지 QR코드 로드 성공');
                 qrContainer.appendChild(img);
             };
             
             img.onerror = function() {
-                console.log('❌ 데스크탑 QR코드 로드 실패');
                 generateQRCodeFinalFallback();
             };
         }
 
         function generateQRCodeFinalFallback() {
-            console.log('=== 최종 폴백 방법: URL 표시 ===');
-            
             const qrContainer = document.getElementById('qr-code');
             const fallbackContainer = document.getElementById('qr-fallback');
-            const url = 'https://coghks926.github.io/stress-test/';
             
             qrContainer.style.display = 'none';
             fallbackContainer.classList.add('show');
-            
-            const urlElement = document.getElementById('qr-url');
-            if (urlElement) {
-                urlElement.textContent = url;
-            }
-            
-            console.log('✅ URL 폴백 표시 완료');
         }
 
         function copyURL() {
@@ -2230,9 +2076,7 @@
 
                         <div class="qr-section">
                             <h2 class="qr-title">📱 QR코드로 모바일에서 접속하기</h2>
-                            <p class="qr-description">
-                                아래 QR코드를 스캔하면 모바일 기기에서도 같은 검사를 받을 수 있습니다.
-                            </p>
+                            <p class="qr-description">아래 QR코드를 스캔하면 모바일 기기에서도 같은 검사를 받을 수 있습니다.</p>
                             
                             <div class="qr-container">
                                 <div class="qr-code" id="qr-code"></div>
@@ -2240,9 +2084,7 @@
                                     <h4>📱 모바일에서 접속하기</h4>
                                     <div class="qr-url" id="qr-url"></div>
                                     <button class="copy-button" onclick="copyURL()">URL 복사하기</button>
-                                    <p style="font-size: 14px; color: #666;">
-                                        위 URL을 복사해서 모바일 브라우저에 붙여넣기 하세요
-                                    </p>
+                                    <p style="font-size: 14px; color: #666;">위 URL을 복사해서 모바일 브라우저에 붙여넣기 하세요</p>
                                 </div>
                             </div>
 
@@ -2271,13 +2113,7 @@
                             <div class="user-info-form">
                                 <div class="form-group">
                                     <label class="form-label">이름</label>
-                                    <input 
-                                        type="text" 
-                                        id="user-name"
-                                        class="form-input" 
-                                        placeholder="이름을 입력하세요"
-                                        value="${state.senderName}"
-                                    />
+                                    <input type="text" id="user-name" class="form-input" placeholder="이름을 입력하세요" value="${state.senderName}" />
                                 </div>
                                 
                                 <div class="form-group">
@@ -2313,9 +2149,7 @@
                                 </div>
                                 
                                 <div class="consent-group">
-                                    <div class="consent-text">
-                                        검사 결과를 바탕으로 더 나은 스트레스 관리 서비스를 제공하기 위해 익명화된 데이터로 활용하는 것에 동의하시나요?
-                                    </div>
+                                    <div class="consent-text">검사 결과를 바탕으로 더 나은 스트레스 관리 서비스를 제공하기 위해 익명화된 데이터로 활용하는 것에 동의하시나요?</div>
                                     <div class="consent-checkbox">
                                         <input type="checkbox" id="consent" />
                                         <label for="consent">동의합니다</label>
@@ -2356,31 +2190,17 @@
                         </div>
 
                         <div class="answer-container">
-                            <button class="answer-button ${selected === 3 ? 'selected' : ''}" onclick="selectAnswer(3)">
-                                언제나 그렇다 (3점)
-                            </button>
-                            <button class="answer-button ${selected === 1 ? 'selected' : ''}" onclick="selectAnswer(1)">
-                                가끔 그렇다 (1점)
-                            </button>
-                            <button class="answer-button ${selected === 0 ? 'selected' : ''}" onclick="selectAnswer(0)">
-                                전혀 아니다 (0점)
-                            </button>
+                            <button class="answer-button ${selected === 3 ? 'selected' : ''}" onclick="selectAnswer(3)">언제나 그렇다 (3점)</button>
+                            <button class="answer-button ${selected === 1 ? 'selected' : ''}" onclick="selectAnswer(1)">가끔 그렇다 (1점)</button>
+                            <button class="answer-button ${selected === 0 ? 'selected' : ''}" onclick="selectAnswer(0)">전혀 아니다 (0점)</button>
                         </div>
 
                         <div class="footer-nav">
-                            <button class="nav-pill" ${questionInfo.isFirst ? 'disabled' : ''} onclick="goToPrevious()">
-                                ← 이전
-                            </button>
-
+                            <button class="nav-pill" ${questionInfo.isFirst ? 'disabled' : ''} onclick="goToPrevious()">← 이전</button>
                             <div class="center-buttons">
-                                <button class="nav-pill secondary" onclick="state.screen='review'; render();">
-                                    답변 현황
-                                </button>
+                                <button class="nav-pill secondary" onclick="state.screen='review'; render();">답변 현황</button>
                             </div>
-
-                            <button class="nav-pill" onclick="confirmAndNext()">
-                                다음 →
-                            </button>
+                            <button class="nav-pill" onclick="confirmAndNext()">다음 →</button>
                         </div>
                     </div>
                 `;
@@ -2427,14 +2247,9 @@
                         
                         <div class="review-footer-nav">
                             ${unanswered.length > 0 ? `
-                                <button class="review-nav-pill" onclick="state.questionFilter='unanswered'; state.screen='question'; state.unansweredQuestions=${JSON.stringify(unanswered)}; state.sessionAnsweredCount=0; state.currentQuestion=${unanswered[0]-1}; render();">
-                                    이어하기
-                                </button>
+                                <button class="review-nav-pill" onclick="state.questionFilter='unanswered'; state.screen='question'; state.unansweredQuestions=${JSON.stringify(unanswered)}; state.sessionAnsweredCount=0; state.currentQuestion=${unanswered[0]-1}; render();">이어하기</button>
                             ` : `<div></div>`}
-                            
-                            <button class="review-nav-pill results" onclick="state.screen='results'; render();">
-                                결과 보기
-                            </button>
+                            <button class="review-nav-pill results" onclick="state.screen='results'; render();">결과 보기</button>
                         </div>
                     </div>
                 `;
@@ -2452,7 +2267,7 @@
                 
                 const mentalTypes = [
                     { key: 'D', label: '정서적 안정' },
-                          { key: 'F', label: '여가활동' },
+                    { key: 'F', label: '여가활동' },
                     { key: 'G', label: '일생활균형' },
                     { key: 'H', label: '자기이해수용' }
                 ];
@@ -2493,14 +2308,11 @@
                                                     </div>
                                                 `).join('')}
                                             </div>
-                                            
                                             <div class="score-section">
                                                 <div class="traffic-light" style="color: ${trafficLight.color}">
                                                     <span class="traffic-icon">${trafficLight.icon}</span>
                                                 </div>
-                                                <div class="total-score" style="color: ${trafficLight.color}">
-                                                    ${score}점
-                                                </div>
+                                                <div class="total-score" style="color: ${trafficLight.color}">${score}점</div>
                                             </div>
                                         </div>
                                     `;
@@ -2526,7 +2338,6 @@
                                                 <div class="type-label">${type.key}유형</div>
                                                 <div class="type-name">${type.label}</div>
                                             </div>
-                                            
                                             <div class="questions-section">
                                                 ${typeInfo[type.key].questions.map(qNum => `
                                                     <div class="question-item">
@@ -2535,14 +2346,11 @@
                                                     </div>
                                                 `).join('')}
                                             </div>
-                                            
                                             <div class="score-section">
                                                 <div class="traffic-light" style="color: ${trafficLight.color}">
                                                     <span class="traffic-icon">${trafficLight.icon}</span>
                                                 </div>
-                                                <div class="total-score" style="color: ${trafficLight.color}">
-                                                    ${score}점
-                                                </div>
+                                                <div class="total-score" style="color: ${trafficLight.color}">${score}점</div>
                                             </div>
                                         </div>
                                     `;
@@ -2560,13 +2368,8 @@
                         </div>
 
                         <div class="results-footer-nav">
-                            <button class="results-nav-pill" onclick="state.screen='review'; render();">
-                                ← 이전
-                            </button>
-                            
-                            <button class="results-nav-pill" onclick="state.screen='plan'; render();">
-                                다음 →
-                            </button>
+                            <button class="results-nav-pill" onclick="state.screen='review'; render();">← 이전</button>
+                            <button class="results-nav-pill" onclick="state.screen='plan'; render();">다음 →</button>
                         </div>
 
                         <div style="height: 100px;"></div>
@@ -2585,11 +2388,7 @@
                         </div>
 
                         <div class="plan-card">
-                            <textarea 
-                                class="plan-input" 
-                                placeholder="예: 매주 3회 운동, 카페인 줄이기, 주말 휴식 시간 확보 등"
-                                oninput="state.planText = this.value"
-                            >${state.planText}</textarea>
+                            <textarea class="plan-input" placeholder="예: 매주 3회 운동, 카페인 줄이기, 주말 휴식 시간 확보 등" oninput="state.planText = this.value">${state.planText}</textarea>
                             
                             <div class="additional-info">
                                 <h4>스트레스와 정신건강 추가 정보</h4>
@@ -2604,13 +2403,8 @@
                         </div>
                         
                         <div class="plan-footer-nav">
-                            <button class="plan-nav-pill" onclick="state.screen='results'; render();">
-                                ← 이전
-                            </button>
-                            
-                            <button class="plan-nav-pill" onclick="state.screen='completion'; render();">
-                                다음 →
-                            </button>
+                            <button class="plan-nav-pill" onclick="state.screen='results'; render();">← 이전</button>
+                            <button class="plan-nav-pill" onclick="saveToSheet(); state.screen='completion'; render();">다음 →</button>
                         </div>
                     </div>
                 `;
@@ -2622,22 +2416,12 @@
                         <div class="completion-card">
                             <div class="completion-icon">🎉</div>
                             <h1 class="completion-title">고생하셨습니다!</h1>
-                            <p class="completion-message">
-                                스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>
-                                검사 결과와 실천 전략을 바탕으로<br>
-                                더 건강한 일상을 만들어가시길 바랍니다.
-                            </p>
-                            <p class="completion-subtitle">
-                                언제든지 다시 검사해보시고,<br>
-                                꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪
-                            </p>
+                            <p class="completion-message">스트레스 취약성 검사를 완료해주셔서 감사합니다.<br>검사 결과와 실천 전략을 바탕으로<br>더 건강한 일상을 만들어가시길 바랍니다.</p>
+                            <p class="completion-subtitle">언제든지 다시 검사해보시고,<br>꾸준한 자기 관리로 스트레스를 잘 관리하세요! 💪</p>
                         </div>
                     </div>
-
                     <div class="footer-bar">
-                        <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">
-                            처음으로 돌아가기
-                        </button>
+                        <button class="nav-pill" onclick="state.screen='intro'; resetTest(); render();">처음으로 돌아가기</button>
                     </div>
                 `;
             }
