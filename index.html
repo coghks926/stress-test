@@ -582,6 +582,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
+            align-items: stretch; /* 모든 카드를 같은 높이로 정렬 */
         }
 
         .type-card {
@@ -592,6 +593,9 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* 그리드 셀의 전체 높이 사용 */
         }
 
         .type-card:hover {
@@ -656,6 +660,7 @@
             text-align: center;
             padding-top: 1rem;
             border-top: 2px solid #e2e8f0;
+            margin-top: auto; /* 카드 하단에 고정 */
         }
 
         .traffic-light {
@@ -847,6 +852,7 @@
         }
 
         .consent-group {
+            margin-top: 1rem;
             margin-bottom: 1.5rem;
             padding: 1rem;
             background: rgba(255,255,255,0.8);
@@ -1326,7 +1332,13 @@
             
             .results-footer-nav {
                 gap: 0.5rem !important;
-                margin-top: 0.67rem !important;
+                margin-top: 1.5rem !important;
+            }
+            
+            /* 모바일에서 해석 가이드를 결과 카드와 버튼 사이 중간에 배치 */
+            .interpretation-guide {
+                margin-top: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
             }
 
             .plan-footer-nav .plan-nav-pill {
@@ -1521,7 +1533,13 @@
             
             .results-footer-nav {
                 gap: 0.4rem !important;
-                margin-top: 0.67rem !important;
+                margin-top: 1.5rem !important;
+            }
+            
+            /* 작은 모바일에서도 해석 가이드를 결과 카드와 버튼 사이 중간에 배치 */
+            .interpretation-guide {
+                margin-top: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
             }
 
             .plan-footer-nav .plan-nav-pill {
@@ -2387,7 +2405,7 @@
                     <div class="container">
                         <div class="header" style="margin-bottom: 2rem;">
                             <div class="title-box">
-                                <h1 class="title">나의 스트레스 관리 실천 전략</h1>
+                                <h1 class="title">나의 스트레스 관리<br>실천 전략</h1>
                                 <div class="subtitle">자유롭게 계획을 적어보세요</div>
                             </div>
                         </div>
