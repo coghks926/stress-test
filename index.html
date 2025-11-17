@@ -1770,7 +1770,7 @@
 
         async function saveToSheet() {
             const scores = calculateScores();
-            const url = 'https://script.google.com/macros/s/AKfycbz9VDoqZorxJS6e3MIe9aQjHWaQO3ZTJOnK3IFY4UcqtKbsGaa5HfIeqOCn0sn1W0lv/exec';
+            const url = 'https://script.google.com/macros/s/AKfycbwWBpfklSRqmBKKbRTbs41TpPcCmLSm48UewqLGHKgZuHbVRVNLsK1DAq6W7d9hmyxo/exec';
             
             // 각 유형별 색상 정보 계산
             const colorInfo = {};
@@ -1783,7 +1783,6 @@
             });
             
             const data = {
-                senderName: state.senderName,
                 userGender: state.userGender,
                 userAge: state.userAge,
                 answers: state.answers,
