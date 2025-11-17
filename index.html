@@ -2054,6 +2054,10 @@
                 } else {
                     ageSelect.style.color = '#2d3748';
                 }
+                // 삼성 휴대폰에서 선택 후 자동으로 닫히도록 blur() 호출
+                setTimeout(() => {
+                    ageSelect.blur();
+                }, 100);
             }
         }
 
