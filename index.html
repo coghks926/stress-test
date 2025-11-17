@@ -1115,6 +1115,14 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .additional-info h4::before {
+            content: "ℹ️";
+            font-size: 1.2em;
         }
 
         .additional-info p {
@@ -1146,6 +1154,14 @@
             color: #667eea;
             font-weight: 600;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .additional-info .email::before {
+            content: "✉️";
+            font-size: 1.05em;
         }
 
         .additional-info .email:hover {
