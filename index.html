@@ -852,7 +852,6 @@
         }
 
         .consent-group {
-            margin-top: 1rem;
             margin-bottom: 1.5rem;
             padding: 1rem;
             background: rgba(255,255,255,0.8);
@@ -1224,6 +1223,11 @@
             
             .title {
                 font-size: clamp(28px, 7vw, 42px) !important;
+            }
+            
+            /* 모바일에서 동의 박스 간격 추가 */
+            .consent-group {
+                margin-top: 1rem !important;
             }
             
             .question-card {
@@ -2401,11 +2405,15 @@
             }
             
             else if (state.screen === 'plan') {
+                // 모바일 여부 확인
+                const isMobile = window.innerWidth <= 768;
+                const planTitle = isMobile ? '나의 스트레스 관리<br>실천 전략' : '나의 스트레스 관리 실천 전략';
+                
                 app.innerHTML = `
                     <div class="container">
                         <div class="header" style="margin-bottom: 2rem;">
                             <div class="title-box">
-                                <h1 class="title">나의 스트레스 관리<br>실천 전략</h1>
+                                <h1 class="title">${planTitle}</h1>
                                 <div class="subtitle">자유롭게 계획을 적어보세요</div>
                             </div>
                         </div>
